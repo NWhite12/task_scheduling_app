@@ -1,6 +1,6 @@
-package com.badger.demo.view
+package com.badger.taskschedulingapp.view
 
-import com.badger.demo.app.Styles
+import com.badger.taskschedulingapp.staic.Styles
 import tornadofx.*
 
 class MainView : View("Hello TornadoFX") {
