@@ -14,7 +14,7 @@ import javax.print.DocFlavor
     due_date
     priority_key
  */
-class task (_id: Int, _user_key: Int, _title: String, _description: String, _due_date: Date, _priority_key: Int) {
+class Task (_id: Int, _user_key: Int, _title: String, _description: String, _due_date: Date, _priority_key: Int) {
 
 
     /*

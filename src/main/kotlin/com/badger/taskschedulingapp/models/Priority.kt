@@ -8,7 +8,7 @@ package com.badger.taskschedulingapp.models
     id
     title
  */
-class priority (_id: Int, _title: String){
+class Priority (_id: Int, _title: String){
 
     /*
         id      | holds the id of this priority
