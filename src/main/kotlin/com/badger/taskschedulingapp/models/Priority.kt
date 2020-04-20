@@ -1,5 +1,7 @@
 package com.badger.taskschedulingapp.models
 
+import javax.persistence.*
+
 /*
     This class represent our 'priority' table in the database_v1
     setters and getters are coded so easy to change default if needed.
@@ -8,29 +10,14 @@ package com.badger.taskschedulingapp.models
     id
     title
  */
-class Priority (_id: Int, _title: String){
+@Entity
+@Table(name="priorities")
+data class Priority (@Id
+                     @GeneratedValue(strategy = GenerationType.AUTO)
+                     var id: Long? = null,
+                     var title: String? = null,
+                     @OneToMany(cascade=[CascadeType.ALL])
+                     @JoinColumn(name="task_id")
+                     val tasks: List<Task> = emptyList()) {
 
-    /*
-        id      | holds the id of this priority
-        type    | int
-    */
-    var id: Int = _id
-        get() {
-            return field
-        }
-        set(value){
-            field = value
-        }
-
-    /*
-        title   | holds the title for the priority
-        type    | String
-    */
-    var title: String = _title
-        get() {
-            return field
-        }
-        set(value){
-            field = value
-        }
 }

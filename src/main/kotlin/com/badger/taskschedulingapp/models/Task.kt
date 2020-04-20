@@ -1,7 +1,8 @@
 package com.badger.taskschedulingapp.models
 
+import com.badger.demo.app.User
 import java.util.*
-import javax.print.DocFlavor
+import javax.persistence.*
 
 /*
     This class represent our 'task' table in the database_v1
@@ -14,80 +15,17 @@ import javax.print.DocFlavor
     due_date
     priority_key
  */
-class Task (_id: Int, _user_key: Int, _title: String, _description: String, _due_date: Date, _priority_key: Int) {
-
-
-    /*
-        id      | holds the id of this task
-        type    | int
-    */
-    var id: Int = _id
-        get() {
-            return field
-        }
-        set(value){
-            field = value
-        }
-
-    /*
-        user_key| holds the id of the user that created this task=
-        type    | int
-    */
-    var user_key: Int = _user_key
-        get() {
-            return field
-        }
-        set(value) {
-            field = value
-        }
-
-    /*
-        title   | holds the title of the task
-        type    | String
-    */
-    var title: String = _title
-        get() {
-            return field
-        }
-        set(value) {
-            field = value
-        }
-
-    /*
-        description | holds the description of the task
-        type        | String
-    */
-    var description: String = _description
-        get() {
-            return field
-        }
-        set(value) {
-            field = value
-        }
-
-    /*
-        due_date| holds the due date of the task
-        type    | Date
-    */
-    var due_date: Date = _due_date
-        get() {
-            return field
-        }
-        set(value) {
-            field = value
-        }
-
-    /*
-        priority_key    | holds the id of the priority level this task is
-        type            | Int
-    */
-    var priority_key: Int = _priority_key
-        get() {
-            return field
-        }
-        set(value) {
-            field = value
-        }
-
+@Entity
+@Table(name="tasks")
+data class Task (@Id
+                 @GeneratedValue(strategy = GenerationType.AUTO)
+                 var id: Long? = null,
+                 var title: String? = null,
+                 var description: String? = null,
+                 var due_date: Date? = null,
+                 @ManyToOne
+                 var user: User? = null,
+                 @ManyToOne
+                 var priority: Priority) {
 
 }

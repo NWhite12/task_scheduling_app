@@ -1,4 +1,8 @@
 package com.badger.demo.app
+
+import com.badger.taskschedulingapp.models.Task
+import javax.persistence.*
+
 /*
     This class represent our 'users' table in the database_v1
     setters and getters are coded so easy to change default if needed.
@@ -9,44 +13,19 @@ package com.badger.demo.app
     password
 
  */
-class User (_id: Int, _name: String, _password: String){
+@Entity
+@Table(name="users")
+data class User (
+        @Id
+        @GeneratedValue(strategy = GenerationType.AUTO)
+        var id: Long? = null,
+        var name: String? = null,
+        var password: String? = null,
+        @OneToMany(cascade=[CascadeType.ALL])
+        @JoinColumn(name="task_id")
+        val tasks: List<Task> = emptyList()) {
 
 
-    /*
-        id      | holds the id of this user
-        type    | int
-    */
-    var id: Int = _id
-        get() {
-            return field
-        }
-        set(value){
-            field = value
-        }
 
-    /*
-       name    | Name of this user
-       type    | String
-   */
-    var name : String = _name
-        get() {
-            return field
-        }
-        set(value){
-            field = value
-        }
-
-    /*
-       password | holds the password for this user
-       type     | string
-       ***note*** password is currently unencrypted
-   */
-    var password : String = _password
-        get() {
-            return field
-        }
-        set(value){
-            field = value
-        }
 
 }
