@@ -1,7 +1,7 @@
 package com.badger.taskschedulingapp
 
 import com.badger.taskschedulingapp.staic.Styles
-import com.badger.taskschedulingapp.view.MainView
+import com.badger.taskschedulingapp.view.WelcomeView
 import tornadofx.*
 
-class MyApp: App(MainView::class, Styles::class)
+class MyApp: App(WelcomeView::class, Styles::class)
