@@ -1,6 +1,7 @@
 package com.badger.demo.app
 
 import com.badger.taskschedulingapp.models.Task
+import java.io.Serializable
 import javax.persistence.*
 
 /*
@@ -21,9 +22,8 @@ data class User (
         var id: Long? = null,
         var name: String? = null,
         var password: String? = null,
-        @OneToMany(cascade=[CascadeType.ALL])
-        @JoinColumn(name="task_id")
-        val tasks: List<Task> = emptyList()) {
+        @OneToMany(cascade=[CascadeType.ALL], mappedBy = "user")
+        val tasks: List<Task> = emptyList()): Serializable {
 
 
 

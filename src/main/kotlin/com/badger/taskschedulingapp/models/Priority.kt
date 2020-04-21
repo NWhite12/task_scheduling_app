@@ -1,5 +1,6 @@
 package com.badger.taskschedulingapp.models
 
+import java.io.Serializable
 import javax.persistence.*
 
 /*
@@ -16,8 +17,7 @@ data class Priority (@Id
                      @GeneratedValue(strategy = GenerationType.AUTO)
                      var id: Long? = null,
                      var title: String? = null,
-                     @OneToMany(cascade=[CascadeType.ALL])
-                     @JoinColumn(name="task_id")
-                     val tasks: List<Task> = emptyList()) {
+                     @OneToMany(cascade=[CascadeType.ALL], mappedBy = "priority")
+                     val tasks: List<Task> = emptyList()): Serializable {
 
 }
