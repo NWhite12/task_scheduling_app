@@ -1,5 +1,7 @@
 package com.badger.taskschedulingapp.services.postgresql
 
+
+import com.badger.taskschedulingapp.models.DataSource.Companion.transaction
 import com.badger.taskschedulingapp.models.Priority
 import com.badger.taskschedulingapp.services.PriorityService
 
@@ -10,11 +12,16 @@ class PriorityPostgresService: AbstractPostgresqlSerivce<Priority, Long>(), Prio
     }
 
     override fun findById(id: Long): Priority {
-        TODO("Not yet implemented")
+        return sessionFactory.transaction { session ->
+            session.get(Priority::class.java, id)
+        }
     }
 
+
     override fun save(obj: Priority): Priority {
-        TODO("Not yet implemented")
+        return findById(sessionFactory.transaction { session ->
+            session.save(obj)
+        } as Long)
     }
 
     override fun delete(obj: Priority) {

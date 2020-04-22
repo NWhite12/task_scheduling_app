@@ -8,9 +8,10 @@ fun main(args: Array<String>){
     user.name ="nick"
     user.password = "1234"
 
-
     val userService = UserPostgresService()
 
-    userService.save(user)
+
+    println(userService.save(user))
+
 
 }
