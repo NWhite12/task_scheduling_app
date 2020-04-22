@@ -1,4 +1,4 @@
-package com.badger.taskschedulingapp.services
+package com.badger.taskschedulingapp.Main.services
 
 interface CrudService<T, ID> {
     fun findAll(): Set<T>

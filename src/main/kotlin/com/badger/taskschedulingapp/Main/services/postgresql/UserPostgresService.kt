@@ -1,8 +1,8 @@
-package com.badger.taskschedulingapp.services.postgresql
+package com.badger.taskschedulingapp.Main.services.postgresql
 
 import com.badger.demo.app.User
-import com.badger.taskschedulingapp.models.DataSource.Companion.transaction
-import com.badger.taskschedulingapp.services.UserService
+import com.badger.taskschedulingapp.Main.models.DataSource.Companion.transaction
+import com.badger.taskschedulingapp.Main.services.UserService
 
 class UserPostgresService: AbstractPostgresqlSerivce<User, Long>(), UserService {
     override fun findAll(): Set<User> {

@@ -1,8 +1,8 @@
-package com.badger.taskschedulingapp.services.postgresql
+package com.badger.taskschedulingapp.Main.services.postgresql
 
-import com.badger.taskschedulingapp.models.DataSource.Companion.transaction
-import com.badger.taskschedulingapp.models.Task
-import com.badger.taskschedulingapp.services.TaskService
+import com.badger.taskschedulingapp.Main.models.DataSource.Companion.transaction
+import com.badger.taskschedulingapp.Main.models.Task
+import com.badger.taskschedulingapp.Main.services.TaskService
 
 class TaskPostgresService: AbstractPostgresqlSerivce<Task, Long>(), TaskService {
 

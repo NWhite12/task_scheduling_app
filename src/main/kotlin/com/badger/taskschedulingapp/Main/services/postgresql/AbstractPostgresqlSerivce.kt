@@ -1,11 +1,11 @@
-package com.badger.taskschedulingapp.services.postgresql
+package com.badger.taskschedulingapp.Main.services.postgresql
 
 import com.badger.demo.app.User
-import com.badger.taskschedulingapp.models.DataSource
-import com.badger.taskschedulingapp.models.DataSource.Companion.propertiesFromResource
-import com.badger.taskschedulingapp.models.DataSource.Companion.toHibernateProperties
-import com.badger.taskschedulingapp.models.Priority
-import com.badger.taskschedulingapp.models.Task
+import com.badger.taskschedulingapp.Main.models.DataSource
+import com.badger.taskschedulingapp.Main.models.DataSource.Companion.propertiesFromResource
+import com.badger.taskschedulingapp.Main.models.DataSource.Companion.toHibernateProperties
+import com.badger.taskschedulingapp.Main.models.Priority
+import com.badger.taskschedulingapp.Main.models.Task
 
 abstract class AbstractPostgresqlSerivce<T, ID> {
 

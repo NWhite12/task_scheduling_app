@@ -1,4 +1,4 @@
-package com.badger.taskschedulingapp.services
+package com.badger.taskschedulingapp.Main.services
 
 import com.badger.demo.app.User
 

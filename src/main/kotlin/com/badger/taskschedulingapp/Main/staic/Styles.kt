@@ -1,4 +1,4 @@
-package com.badger.taskschedulingapp.staic
+package com.badger.taskschedulingapp.Main.staic
 
 import javafx.scene.text.FontWeight
 import tornadofx.*

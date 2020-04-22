@@ -1,4 +1,4 @@
-package com.badger.taskschedulingapp.models
+package com.badger.taskschedulingapp.Main.models
 
 import com.badger.demo.app.User
 import java.io.Serializable

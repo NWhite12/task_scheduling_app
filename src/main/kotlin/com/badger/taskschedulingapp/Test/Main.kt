@@ -1,7 +1,7 @@
-package com.badger.taskschedulingapp
+package com.badger.taskschedulingapp.Test
 
 import com.badger.demo.app.User
-import com.badger.taskschedulingapp.services.postgresql.UserPostgresService
+import com.badger.taskschedulingapp.Main.services.postgresql.UserPostgresService
 
 fun main(args: Array<String>){
     var user = User()

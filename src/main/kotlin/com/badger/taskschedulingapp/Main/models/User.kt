@@ -1,6 +1,6 @@
 package com.badger.demo.app
 
-import com.badger.taskschedulingapp.models.Task
+import com.badger.taskschedulingapp.Main.models.Task
 import java.io.Serializable
 import javax.persistence.*
 

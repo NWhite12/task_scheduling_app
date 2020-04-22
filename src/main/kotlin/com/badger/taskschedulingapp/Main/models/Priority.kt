@@ -1,4 +1,4 @@
-package com.badger.taskschedulingapp.models
+package com.badger.taskschedulingapp.Main.models
 
 import java.io.Serializable
 import javax.persistence.*
