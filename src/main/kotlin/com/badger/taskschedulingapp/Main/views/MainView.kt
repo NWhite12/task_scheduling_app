@@ -1,4 +1,4 @@
-package com.badger.taskschedulingapp.Main.view
+package com.badger.taskschedulingapp.Main.views
 
 import com.badger.taskschedulingapp.Main.staic.Styles
 import tornadofx.*
