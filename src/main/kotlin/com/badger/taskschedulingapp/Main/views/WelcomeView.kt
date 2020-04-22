@@ -1,7 +1,7 @@
-package com.badger.taskschedulingapp.view
+package com.badger.taskschedulingapp.Main.view
 
-import com.badger.taskschedulingapp.controllers.WelcomeController
-import com.badger.taskschedulingapp.staic.Styles
+import com.badger.taskschedulingapp.Main.controllers.WelcomeController
+import com.badger.taskschedulingapp.Main.staic.Styles
 import tornadofx.*
 
 
