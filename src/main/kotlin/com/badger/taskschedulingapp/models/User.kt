@@ -20,6 +20,7 @@ data class User (
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         var id: Long? = null,
+        @Column(unique = true)
         var name: String? = null,
         var password: String? = null,
         @OneToMany(cascade=[CascadeType.ALL], mappedBy = "user")

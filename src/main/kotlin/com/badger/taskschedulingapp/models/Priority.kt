@@ -16,6 +16,7 @@ import javax.persistence.*
 data class Priority (@Id
                      @GeneratedValue(strategy = GenerationType.AUTO)
                      var id: Long? = null,
+                     @Column(unique=true)
                      var title: String? = null,
                      @OneToMany(cascade=[CascadeType.ALL], mappedBy = "priority")
                      val tasks: List<Task> = emptyList()): Serializable {
