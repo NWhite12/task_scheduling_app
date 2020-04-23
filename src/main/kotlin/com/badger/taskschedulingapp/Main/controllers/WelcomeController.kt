@@ -1,7 +1,9 @@
 package com.badger.taskschedulingapp.Main.controllers
 
 import com.badger.taskschedulingapp.Main.views.LoginView
+import javafx.application.Platform
 import tornadofx.*
+import kotlin.system.exitProcess
 
 
 class WelcomeController: Controller() {
@@ -13,7 +15,8 @@ class WelcomeController: Controller() {
 
     fun closeApp(){
         println("Close the app! (from welcome view)")
-
+        Platform.exit()
+        exitProcess(0)
     }
 
 

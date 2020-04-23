@@ -8,12 +8,13 @@ import tornadofx.*
 class TaskListView: View("Task List View"){
 
     val Controller: TaskListController by inject()
-
+    // todo: make this a user object from database
+    val userName: String by param()
 
     override val root = borderpane() {
 
-        //todo: use the users name here
-        top = label("'s Task list") {
+        //todo: use objects user name here
+        top = label("${userName}'s Task list") {
             useMaxWidth = true
             addClass(Styles.heading)
 
@@ -43,7 +44,7 @@ class TaskListView: View("Task List View"){
             button("LogOut") {
                 action {
                     Controller.Logout()
-                    cleanUp()
+                    close()
                 }
 
             }
@@ -54,7 +55,4 @@ class TaskListView: View("Task List View"){
 
 
 
-    fun cleanUp(){
-        close()
-    }
 }

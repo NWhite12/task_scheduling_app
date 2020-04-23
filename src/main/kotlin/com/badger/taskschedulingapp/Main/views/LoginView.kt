@@ -43,6 +43,7 @@ class LoginView: View("Login page") {
             button("Login") {
                 action {
                     controller.loginAttempt(userName, password)
+                    cleanUp()
                 }
             }
 

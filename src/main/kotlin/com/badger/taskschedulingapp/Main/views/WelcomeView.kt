@@ -33,14 +33,15 @@ class WelcomeView : View("Welcome") {
             button("login") {
                 action {
                     controller.startLogIn()
-                    cleanUp()
+                    close()
                 }
+
+                tooltip("Opens up login page")
             }
 
             button ("exit" ){
                 action{
                     controller.closeApp()
-                    killProgram()
                 }
 
                 tooltip("Closes the application")
@@ -54,14 +55,7 @@ class WelcomeView : View("Welcome") {
 
 
 
-    fun cleanUp(){
-        close()
-    }
 
 
-    fun killProgram(){
-        Platform.exit()
-        exitProcess(0)
-    }
 
 }
