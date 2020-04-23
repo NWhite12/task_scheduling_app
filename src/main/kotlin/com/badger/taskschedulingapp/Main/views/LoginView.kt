@@ -1,6 +1,6 @@
-package com.badger.taskschedulingapp.view
+package com.badger.taskschedulingapp.Main.views
 
-import com.badger.taskschedulingapp.controllers.LoginController
+import com.badger.taskschedulingapp.Main.controllers.LoginController
 import com.badger.taskschedulingapp.Main.staic.Styles
 import javafx.scene.control.TextField
 import tornadofx.*
@@ -40,7 +40,7 @@ class LoginView: View("Login page") {
 
         bottom = hbox {
 
-            button("Enter") {
+            button("Login") {
                 action {
                     controller.loginAttempt(userName, password)
                 }
@@ -49,7 +49,7 @@ class LoginView: View("Login page") {
             button("Cancel") {
                 action {
                     controller.cancelLogin()
-                    cancelLogin()
+                    cleanUp()
                 }
 
             }
@@ -87,8 +87,7 @@ class LoginView: View("Login page") {
     }
 
 
-    fun cancelLogin(){
-        find<WelcomeView>().openWindow(owner = null)
+    fun cleanUp(){
         userName.clear()
         password.clear()
         close()
