@@ -1,8 +1,10 @@
-package com.badger.taskschedulingapp.Main.view
+package com.badger.taskschedulingapp.view
 
-import com.badger.taskschedulingapp.Main.controllers.WelcomeController
+import com.badger.taskschedulingapp.controllers.WelcomeController
 import com.badger.taskschedulingapp.Main.staic.Styles
+import javafx.application.Platform
 import tornadofx.*
+import kotlin.system.exitProcess
 
 
 class WelcomeView : View("Hello TornadoFX") {
@@ -16,29 +18,7 @@ class WelcomeView : View("Hello TornadoFX") {
 
         }
 
-        bottom = vbox {
-
-            button("login") {
-                action {
-                    controller.startLogIn()
-                }
-            }
-
-            button ("exit" ){
-                action{
-                    controller.closeApp()
-                }
-
-                tooltip("Closes the application")
-
-            }
-
-
-        }
-
         //left =
-
-        //right =
 
         center = label("") {
             useMaxWidth = true
@@ -46,7 +26,43 @@ class WelcomeView : View("Hello TornadoFX") {
 
         }
 
+        //right =
+
+        bottom = vbox {
+
+            button("login") {
+                action {
+                    controller.startLogIn()
+                    openLogin()
+                }
+            }
+
+            button ("exit" ){
+                action{
+                    controller.closeApp()
+                    killProgram()
+                }
+
+                tooltip("Closes the application")
+
+            }
+
+        }
+
+
     }
 
+
+
+    fun openLogin(){
+        find<LoginView>().openWindow(owner = null)
+        close()
+    }
+
+
+    fun killProgram(){
+        Platform.exit()
+        exitProcess(0)
+    }
 
 }
