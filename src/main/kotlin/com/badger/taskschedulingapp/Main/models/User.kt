@@ -23,7 +23,7 @@ data class User (
         @Column(unique = true)
         var name: String? = null,
         var password: String? = null,
-        @OneToMany(cascade=[CascadeType.ALL], mappedBy = "user")
+        @OneToMany(cascade=[CascadeType.ALL], mappedBy = "user", fetch = FetchType.EAGER)
         val tasks: List<Task> = emptyList()): Serializable {
 
 

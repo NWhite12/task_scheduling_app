@@ -18,7 +18,7 @@ data class Priority (@Id
                      var id: Long? = null,
                      @Column(unique=true)
                      var title: String? = null,
-                     @OneToMany(cascade=[CascadeType.ALL], mappedBy = "priority")
+                     @OneToMany(cascade=[CascadeType.ALL], mappedBy = "priority", fetch = FetchType.EAGER)
                      val tasks: List<Task> = emptyList()): Serializable {
 
 }

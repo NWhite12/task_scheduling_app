@@ -11,7 +11,7 @@ class UserPostgresService: AbstractPostgresqlSerivce<User, Long>(), UserService 
 
     override fun findById(id: Long): User {
         return sessionFactory.transaction { session ->
-            session.get(User::class.java, id)}
+            session.get(User::class.java, id)} as User
     }
 
     override fun save(obj: User): User {

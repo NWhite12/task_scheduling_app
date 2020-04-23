@@ -51,7 +51,7 @@ class DataSource {
         }
 
         fun <T> SessionFactory.transaction(block: (session: Session) -> T): T {
-            val session = openSession()
+            val session = currentSession
             val transaction = session.beginTransaction()
 
             return try {
