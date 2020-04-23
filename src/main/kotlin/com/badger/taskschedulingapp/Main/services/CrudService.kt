@@ -1,7 +1,7 @@
 package com.badger.taskschedulingapp.Main.services
 
 interface CrudService<T, ID> {
-    fun findAll(): Set<T>
+    fun findAll(): List<T>
 
     fun findById(id:ID): T
 

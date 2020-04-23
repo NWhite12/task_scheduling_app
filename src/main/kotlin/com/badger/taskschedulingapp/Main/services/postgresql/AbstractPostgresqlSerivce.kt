@@ -18,7 +18,7 @@ abstract class AbstractPostgresqlSerivce<T, ID> {
         DataSource.addHibernateShutdownHook(sessionFactory)
     }
 
-    abstract fun findAll(): Set<T>
+    abstract fun findAll(): List<T>
 
     abstract fun findById(id:ID): T
 

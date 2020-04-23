@@ -5,13 +5,13 @@ import com.badger.taskschedulingapp.Main.services.postgresql.UserPostgresService
 
 fun main(args: Array<String>){
     var user = User()
-    user.name ="nick"
+    user.name ="Tom"
     user.password = "1234"
 
     val userService = UserPostgresService()
 
-
-    println(userService.save(user))
+    userService.deleteById(13)
+    println(userService.findAll())
 
 
 }

@@ -5,8 +5,8 @@ import com.badger.taskschedulingapp.Main.models.DataSource.Companion.transaction
 import com.badger.taskschedulingapp.Main.services.UserService
 
 class UserPostgresService: AbstractPostgresqlSerivce<User, Long>(), UserService {
-    override fun findAll(): Set<User> {
-        TODO("Not yet implemented")
+    override fun findAll(): List<User> {
+       return sessionFactory.transaction { session -> session.createQuery("from User").resultList } as List<User>
     }
 
     override fun findById(id: Long): User {
@@ -22,10 +22,13 @@ class UserPostgresService: AbstractPostgresqlSerivce<User, Long>(), UserService 
     }
 
     override fun delete(obj: User) {
-        TODO("Not yet implemented")
+        sessionFactory.transaction {session -> session.delete(obj)}
     }
 
     override fun deleteById(id: Long) {
-        TODO("Not yet implemented")
+
+        sessionFactory.transaction {session -> val obj = session.load(User::class.java, id) as User
+            session.delete(obj)
+        }
     }
 }
