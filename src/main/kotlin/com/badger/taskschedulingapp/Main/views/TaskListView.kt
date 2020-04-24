@@ -37,6 +37,7 @@ class TaskListView: View("Task List View"){
             //todo: have this create a task pop up window
             button("Create Task") {
                 action {
+                    Controller.CreateTask()
 
                 }
             }
