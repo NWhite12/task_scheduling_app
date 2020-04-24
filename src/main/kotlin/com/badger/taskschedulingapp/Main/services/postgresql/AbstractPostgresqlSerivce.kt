@@ -29,4 +29,7 @@ abstract class AbstractPostgresqlSerivce<T, ID> {
 
     abstract fun deleteById(id:ID)
 
+    abstract fun update(obj: T)
+
+
 }

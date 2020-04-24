@@ -14,6 +14,12 @@ class UserPostgresService: AbstractPostgresqlSerivce<User, Long>(), UserService 
             session.get(User::class.java, id)} as User
     }
 
+    override fun findByUserName(name: String): User {
+        return sessionFactory.transaction { session ->
+            var hqlQuery = session.createQuery(" from User where name = ?1")
+            hqlQuery.setParameter(1,name).uniqueResult()} as User
+    }
+
     override fun save(obj: User): User {
             return findById(sessionFactory.transaction { session ->
                 session.save(obj)
@@ -26,9 +32,11 @@ class UserPostgresService: AbstractPostgresqlSerivce<User, Long>(), UserService 
     }
 
     override fun deleteById(id: Long) {
+        delete(sessionFactory.transaction {session ->session.load(User::class.java, id)
+        }as User)
+    }
 
-        sessionFactory.transaction {session -> val obj = session.load(User::class.java, id) as User
-            session.delete(obj)
-        }
+    override fun update(obj: User) {
+       sessionFactory.transaction {session -> session.update(obj)}
     }
 }

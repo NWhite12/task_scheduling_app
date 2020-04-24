@@ -11,4 +11,6 @@ interface CrudService<T, ID> {
 
     fun deleteById(id:ID)
 
+    fun update(obj:T)
+
 }

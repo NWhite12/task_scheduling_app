@@ -1,7 +1,6 @@
 package com.badger.taskschedulingapp.Main.services.postgresql
 
 
-import com.badger.demo.app.User
 import com.badger.taskschedulingapp.Main.models.DataSource.Companion.transaction
 import com.badger.taskschedulingapp.Main.models.Priority
 import com.badger.taskschedulingapp.Main.services.PriorityService
@@ -30,8 +29,11 @@ class PriorityPostgresService: AbstractPostgresqlSerivce<Priority, Long>(), Prio
     }
 
     override fun deleteById(id: Long) {
-        sessionFactory.transaction {session -> val obj = session.load(User::class.java, id) as Priority
-            session.delete(obj)
-        }
+        delete(sessionFactory.transaction {session ->session.load(Priority::class.java, id)
+        }as Priority)
+    }
+
+    override fun update(obj: Priority) {
+        sessionFactory.transaction {session -> session.update(obj)}
     }
 }
