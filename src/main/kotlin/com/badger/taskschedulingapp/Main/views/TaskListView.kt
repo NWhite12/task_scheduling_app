@@ -30,8 +30,10 @@ class TaskListView: View("Task List View"){
 
             selectionModel.selectionMode = SelectionMode.SINGLE
 
+            val taskobject: String = "test task"
             onDoubleClick {
-                println("ypet")
+                Controller.EditTask(taskobject)
+                println("double click")
             }
         }
 

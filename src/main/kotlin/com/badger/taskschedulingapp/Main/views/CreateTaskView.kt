@@ -18,6 +18,7 @@ class CreateTaskView: View("Create Task View") {
     var tdue: DatePicker by singleAssign()
     var tpriority: ComboBox<String> by singleAssign()
 
+
     override val root = form{
 
         fieldset("Create a Task"){
