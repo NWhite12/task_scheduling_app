@@ -2,22 +2,13 @@ package com.badger.taskschedulingapp.Main.services.postgresql
 
 import com.badger.demo.app.User
 import com.badger.taskschedulingapp.Main.models.DataSource
-import com.badger.taskschedulingapp.Main.models.DataSource.Companion.propertiesFromResource
-import com.badger.taskschedulingapp.Main.models.DataSource.Companion.toHibernateProperties
 import com.badger.taskschedulingapp.Main.models.Priority
 import com.badger.taskschedulingapp.Main.models.Task
 
 abstract class AbstractPostgresqlSerivce<T, ID> {
 
-    private val modelsList = arrayOf((User::class.java),  (Task::class.java),  (Priority::class.java))
-    private val properties = propertiesFromResource("/postgresqlDB.properties")
-    private val configuration = DataSource.buildHibernateConfiguration(properties.toHibernateProperties(), *modelsList)
-    protected val sessionFactory = DataSource.buildSessionFactory(configuration)
-
-    init {
-        DataSource.addHibernateShutdownHook(sessionFactory)
-        sessionFactory.openSession()
-    }
+    val models = arrayOf((User::class.java),  (Task::class.java),  (Priority::class.java))
+    protected val sessionFactory = DataSource.startSessionFactory("/postgresqlDB.properties", models)
 
     abstract fun findAll(): List<T>
 
