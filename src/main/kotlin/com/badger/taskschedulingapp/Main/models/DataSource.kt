@@ -69,7 +69,7 @@ class DataSource {
 
         }
 
-        /*Adds Runtime Shutdown Hook to to thread.*/
+        /*Adds Runtime Shutdown Hook to close session factory.*/
         private fun addSessionFactoryShutdownHook(sessionFactory: SessionFactory) {
             Runtime.getRuntime().addShutdownHook(object: Thread() {
                 override fun run() {
