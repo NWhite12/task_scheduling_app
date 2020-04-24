@@ -13,14 +13,20 @@ class LoginController: Controller() {
         find<WelcomeView>().openWindow(owner = null)
     }
 
-    fun loginAttempt(userName: TextField, password: TextField){
+    fun loginAttempt(userName: TextField, password: TextField): Boolean {
         println("attemp to long in (from login view)")
         println("name is: ${userName.text} \npassword is: ${password.text}")
 
-        //todo: add if statment to check if allowed in database
-        //todo: add else to open up popup window saying failed
+        //todo: make this a real test that hits a database
+        val someTest: Boolean = true
 
-        //find<TaskListView>(mapOf(TaskListView::userName to userName.text)).openWindow(owner = null)
-        find<AlertView>(mapOf(AlertView::alert to "Faild login attemp", AlertView::message to "You hit the wrong buttons")).openWindow(owner = null)
+        if (someTest) {
+            find<TaskListView>(mapOf(TaskListView::userName to userName.text)).openWindow(owner = null)
+        } else {
+            //todo: go and find an alert modle type and send her instead
+            find<AlertView>(mapOf(AlertView::alert to "Faild login attemp", AlertView::message to "You hit the wrong buttons")).openWindow(owner = null)
+        }
+
+        return someTest
     }
 }

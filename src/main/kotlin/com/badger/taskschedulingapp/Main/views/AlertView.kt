@@ -8,6 +8,7 @@ class AlertView: View("Alert View") {
 
     val Controller: AlertController by inject()
 
+    //todo: should be replaced by a alert modle object
     val alert: String by param()
     val message: String by param()
 

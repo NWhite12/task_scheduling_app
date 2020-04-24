@@ -42,9 +42,10 @@ class LoginView: View("Login page") {
 
             button("Login") {
                 action {
-                    //todo: change to if statment to check retrun of loin attmep so dont have to kill view
-                    controller.loginAttempt(userName, password)
-                    cleanUp()
+                    if ( controller.loginAttempt(userName, password) ){
+                        cleanUp()
+                    }
+
                 }
             }
 
