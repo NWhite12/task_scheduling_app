@@ -29,6 +29,10 @@ class TaskListView: View("Task List View"){
             items.add("task3")
 
             selectionModel.selectionMode = SelectionMode.SINGLE
+
+            onDoubleClick {
+                println("ypet")
+            }
         }
 
         //right =
