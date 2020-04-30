@@ -12,8 +12,11 @@ class TaskPostgresService: AbstractPostgresqlSerivce<Task, Long>(), TaskService 
 
 
     override fun findById(id: Long): Task {
-        return sessionFactory.transaction { session ->
+        return try{ sessionFactory.transaction { session ->
             session.get(Task::class.java, id)} as Task
+        } catch(e: TypeCastException) {
+            Task()
+        }
     }
 
     override fun save(obj: Task): Task {

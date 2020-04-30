@@ -10,14 +10,25 @@ class UserPostgresService: AbstractPostgresqlSerivce<User, Long>(), UserService 
     }
 
     override fun findById(id: Long): User {
-        return sessionFactory.transaction { session ->
-            session.get(User::class.java, id)} as User
+
+        return try {
+            sessionFactory.transaction { session ->
+                session.get(User::class.java, id)
+            } as User
+        } catch(e: TypeCastException) {
+            User()
+        }
     }
 
     override fun findByUserName(name: String): User {
-        return sessionFactory.transaction { session ->
+        return try {
+            sessionFactory.transaction { session ->
             var hqlQuery = session.createQuery(" from User where name = ?1")
-            hqlQuery.setParameter(1,name).uniqueResult()} as User
+            hqlQuery.setParameter(1,name).uniqueResult()
+            } as User
+        } catch(e: TypeCastException) {
+            User()
+        }
     }
 
     override fun save(obj: User): User {

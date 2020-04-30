@@ -27,6 +27,6 @@ data class Task (@Id
                  @ManyToOne
                  var user: User? = null,
                  @ManyToOne
-                 var priority: Priority): Serializable {
+                 var priority: Priority? = null): Serializable {
 
 }
