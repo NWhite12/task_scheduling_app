@@ -30,7 +30,7 @@ class LoginController: Controller() {
 
         //todo: check up on bad login after Nick adds null returns
         if (user.id != null) {
-            find<TaskListView>(mapOf(TaskListView::userName to userName.text)).openWindow(owner = null)
+            find<TaskListView>(mapOf(TaskListView::user to user)).openWindow(owner = null)
         }
         else {
             //todo: go and find an alert model type and send here instead

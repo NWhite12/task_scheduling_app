@@ -47,6 +47,7 @@ class LoginView: View("Login page") {
                     }
 
                 }
+                shortcut("Enter")
             }
 
             button("Cancel") {

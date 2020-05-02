@@ -1,6 +1,7 @@
 package com.badger.taskschedulingapp.Main.views
 
 import com.badger.taskschedulingapp.Main.controllers.EditTaskController
+import com.badger.taskschedulingapp.Main.models.Task
 import javafx.collections.FXCollections
 import javafx.scene.control.ComboBox
 import javafx.scene.control.DatePicker
@@ -19,20 +20,20 @@ class EditTaskView: View("Edit View") {
     var tpriority: ComboBox<String> by singleAssign()
 
     //todo: change to a task object
-    val taskObject: String by param()
+    val task: Task by param()
 
     override val root = form {
 
-        fieldset("$taskObject's Edit Menu") {
+        fieldset("${task.title}'s Edit Menu") {
 
             field("Title") {
-                ttile = textfield("$taskObject title") //todo: change to getting old values from database on this task
+                ttile = textfield("${task.title} title") //todo: change to getting old values from database on this task
             }
 
             field("Description") {
                 tdescription = textarea {
                     prefRowCount = 5
-                    text = "$taskObject description!!!" //todo: change to getting old values from database on this task
+                    text = "${task.description} description!!!" //todo: change to getting old values from database on this task
                 }
             }
 
