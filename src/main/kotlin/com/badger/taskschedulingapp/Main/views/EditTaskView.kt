@@ -26,29 +26,27 @@ class EditTaskView: Fragment("Edit View") {
         fieldset("${task.title}'s Edit Menu") {
 
             field("Title") {
-                ttile = textfield("${task.title} title")
+                ttile = textfield(task.title)
             }
 
             field("Description") {
                 tdescription = textarea {
                     prefRowCount = 5
-                    text = "${task.description} description!!!"
+                    text = task.description
                 }
             }
 
             field("Due Date") {
                 tdue = datepicker{
-                    value = LocalDate.parse("2000-01-01") //todo: change to getting old values from database on this task
+                    value = LocalDate.parse( (task.due_date.toString().split(' ')[0])) //todo: change to getting old values from database on this task
                 }
 
             }
 
-            //todo: make this a pull from database instead
-            val example = FXCollections.observableArrayList("high", "Mid", "low")
             label("Priority Level")
             tpriority = combobox<String> {
-                items = example
-                value = "high" //todo: change to getting old values from database on this task
+                items = controller.getPriority()
+                value = task.priority?.title.toString()
             }
 
         }
@@ -56,14 +54,14 @@ class EditTaskView: Fragment("Edit View") {
 
     button("Delete"){
         action {
-            if (controller.delete(ttile.text))
+            if (controller.delete(task))
                 close()
         }
     }
 
     button("Save"){
         action {
-            if (controller.save(ttile.text, tdescription.text, tdue.value.toString(), tpriority.value.toString()))
+            if (controller.save(ttile.text, tdescription.text, tdue.value.toString(), tpriority.value.toString(),task))
                 close()
         }
     }
