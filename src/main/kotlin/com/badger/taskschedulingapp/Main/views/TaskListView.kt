@@ -11,8 +11,8 @@ import tornadofx.*
 
 class TaskListView: View("Task List View"){
 
-    val controller: TaskListController by inject()
     val user: User by param()
+    val controller = TaskListController(user)
     val taskList = user.tasks
 
 
@@ -29,7 +29,7 @@ class TaskListView: View("Task List View"){
         center = listview<Task> {
             selectionModel.selectionMode = SelectionMode.SINGLE
 
-            for(task in user.tasks) items.add(task)
+            for(task in user.tasks) items.add(task)//TODO: refactor into TaskListController
 
             onDoubleClick {
                 controller.EditTask(selectionModel.selectedItem)

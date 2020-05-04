@@ -1,14 +1,16 @@
 package com.badger.taskschedulingapp.Main.controllers
 
+import com.badger.demo.app.User
+import com.badger.taskschedulingapp.Main.models.Task
 import com.badger.taskschedulingapp.Main.views.AlertView
 import tornadofx.*
 
-class CreateTaskController: Controller() {
-
+class CreateTaskController(u: User): Controller() {
+    val user = u
 
 
     fun save(title: String, description: String, due: String, priority: String): Boolean{
-
+    var task: Task
         //todo: replace this with a save call to modles for datbase
         println("title is $title")
         println("Descripton is $description")

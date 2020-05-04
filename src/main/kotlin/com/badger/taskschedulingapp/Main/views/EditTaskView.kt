@@ -10,7 +10,7 @@ import javafx.scene.control.TextField
 import tornadofx.*
 import java.time.LocalDate
 
-class EditTaskView: View("Edit View") {
+class EditTaskView: Fragment("Edit View") {
 
     val controller: EditTaskController by inject()
 
@@ -19,7 +19,6 @@ class EditTaskView: View("Edit View") {
     var tdue: DatePicker by singleAssign()
     var tpriority: ComboBox<String> by singleAssign()
 
-    //todo: change to a task object
     val task: Task by param()
 
     override val root = form {
@@ -27,13 +26,13 @@ class EditTaskView: View("Edit View") {
         fieldset("${task.title}'s Edit Menu") {
 
             field("Title") {
-                ttile = textfield("${task.title} title") //todo: change to getting old values from database on this task
+                ttile = textfield("${task.title} title")
             }
 
             field("Description") {
                 tdescription = textarea {
                     prefRowCount = 5
-                    text = "${task.description} description!!!" //todo: change to getting old values from database on this task
+                    text = "${task.description} description!!!"
                 }
             }
 

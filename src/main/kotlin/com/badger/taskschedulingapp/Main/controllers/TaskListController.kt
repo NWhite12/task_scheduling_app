@@ -1,17 +1,19 @@
 package com.badger.taskschedulingapp.Main.controllers
 
+import com.badger.demo.app.User
 import com.badger.taskschedulingapp.Main.models.Task
 import com.badger.taskschedulingapp.Main.views.CreateTaskView
 import com.badger.taskschedulingapp.Main.views.EditTaskView
+import com.badger.taskschedulingapp.Main.views.TaskListView
 import com.badger.taskschedulingapp.Main.views.WelcomeView
 import tornadofx.*
 
-class TaskListController: Controller() {
-
+class TaskListController(u: User): Controller() {
+    val user = u
 
     fun CreateTask(){
-        println("Opeing up the create task view (from task list )")
-        find<CreateTaskView>().openWindow(owner = null)
+        println("Opening the create task view (from task list )")
+        find<CreateTaskView>(mapOf(CreateTaskView::user to user)).openWindow(owner = null)
     }
 
     fun Logout(){
