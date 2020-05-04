@@ -1,5 +1,8 @@
 package com.badger.taskschedulingapp.Main.controllers
 
+import com.badger.demo.app.User
+import com.badger.taskschedulingapp.Main.services.UserService
+import com.badger.taskschedulingapp.Main.services.postgresql.UserPostgresService
 import com.badger.taskschedulingapp.Main.views.AlertView
 import com.badger.taskschedulingapp.Main.views.TaskListView
 import com.badger.taskschedulingapp.Main.views.WelcomeView
@@ -14,19 +17,26 @@ class LoginController: Controller() {
     }
 
     fun loginAttempt(userName: TextField, password: TextField): Boolean {
-        println("attemp to long in (from login view)")
+        var user = User()
+
+        println("attempt to long in (from login view)")
         println("name is: ${userName.text} \npassword is: ${password.text}")
 
-        //todo: make this a real test that hits a database
-        val someTest: Boolean = true
-
-        if (someTest) {
-            find<TaskListView>(mapOf(TaskListView::userName to userName.text)).openWindow(owner = null)
-        } else {
-            //todo: go and find an alert modle type and send her instead
-            find<AlertView>(mapOf(AlertView::alert to "Faild login attemp", AlertView::message to "You hit the wrong buttons")).openWindow(owner = null)
+        if(userName.text == "" || password.text == "") find<AlertView>(mapOf(AlertView::alert to "Failed login attempt", AlertView::message to "Enter a Username and Password")).openWindow(owner = null)
+        else {
+            var service = UserPostgresService()
+            user = service.findByUserName(userName.text)
         }
 
-        return someTest
+        //todo: check up on bad login after Nick adds null returns
+        if (user.id != null) {
+            find<TaskListView>(mapOf(TaskListView::user to user)).openWindow(owner = null)
+        }
+        else {
+            //todo: go and find an alert model type and send here instead
+            find<AlertView>(mapOf(AlertView::alert to "Failed login attempt", AlertView::message to "User not found")).openWindow(owner = null)
+        }
+
+        return user.id != null
     }
 }

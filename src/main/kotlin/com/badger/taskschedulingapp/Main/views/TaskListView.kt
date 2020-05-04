@@ -1,20 +1,24 @@
 package com.badger.taskschedulingapp.Main.views
 
+import com.badger.demo.app.User
 import com.badger.taskschedulingapp.Main.controllers.TaskListController
+import com.badger.taskschedulingapp.Main.models.Task
 import com.badger.taskschedulingapp.Main.staic.Styles
+import javafx.collections.ObservableList
+import javafx.collections.transformation.SortedList
 import javafx.scene.control.SelectionMode
 import tornadofx.*
 
 class TaskListView: View("Task List View"){
 
-    val Controller: TaskListController by inject()
-    // todo: make this a user object from database
-    val userName: String by param()
+    val user: User by param()
+    val controller = TaskListController(user)
+    val taskList = user.tasks
+
 
     override val root = borderpane() {
 
-        //todo: use objects user name here
-        top = label("${userName}'s Task list") {
+        top = label("${user.name}'s Task list") {
             useMaxWidth = true
             addClass(Styles.heading)
 
@@ -22,17 +26,13 @@ class TaskListView: View("Task List View"){
 
         //left =
 
-        //todo: have this dispaly tasks pulled form database
-        center = listview<String> {
-            items.add("task1")
-            items.add("task2")
-            items.add("task3")
-
+        center = listview<Task> {
             selectionModel.selectionMode = SelectionMode.SINGLE
 
-            val taskobject: String = "test task"
+            for(task in user.tasks) items.add(task)//TODO: refactor into TaskListController
+
             onDoubleClick {
-                Controller.EditTask(taskobject)
+                controller.EditTask(selectionModel.selectedItem)
                 println("double click")
             }
         }
@@ -43,14 +43,14 @@ class TaskListView: View("Task List View"){
             //todo: have this create a task pop up window
             button("Create Task") {
                 action {
-                    Controller.CreateTask()
+                    controller.CreateTask()
 
                 }
             }
 
             button("LogOut") {
                 action {
-                    Controller.Logout()
+                    controller.Logout()
                     close()
                 }
 

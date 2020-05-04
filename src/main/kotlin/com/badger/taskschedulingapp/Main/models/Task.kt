@@ -1,6 +1,7 @@
 package com.badger.taskschedulingapp.Main.models
 
 import com.badger.demo.app.User
+import tornadofx.Stylesheet.Companion.title
 import java.io.Serializable
 import java.util.*
 import javax.persistence.*
@@ -27,6 +28,6 @@ data class Task (@Id
                  @ManyToOne
                  var user: User? = null,
                  @ManyToOne
-                 var priority: Priority? = null): Serializable {
-
+                 var priority: Priority): Serializable {
+    override fun toString(): String {return title.toString()}
 }
