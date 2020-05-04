@@ -32,7 +32,7 @@ class TaskListView: View("Task List View"){
             for(task in user.tasks) items.add(task)
 
             onDoubleClick {
-                //controller.EditTask()
+                controller.EditTask(selectionModel.selectedItem)
                 println("double click")
             }
         }
