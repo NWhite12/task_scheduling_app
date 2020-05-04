@@ -12,9 +12,11 @@ class PriorityPostgresService: AbstractPostgresqlSerivce<Priority, Long>(), Prio
     }
 
     override fun findById(id: Long): Priority {
-        return sessionFactory.transaction { session ->
+        return try{ sessionFactory.transaction { session ->
             session.get(Priority::class.java, id)
-        } as Priority
+        } as Priority} catch(e: TypeCastException) {
+            Priority()
+        }
     }
 
 
