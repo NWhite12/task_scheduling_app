@@ -28,6 +28,6 @@ data class Task (@Id
                  @ManyToOne
                  var user: User? = null,
                  @ManyToOne
-                 var priority: Priority): Serializable {
+                 var priority: Priority? = null): Serializable {
     override fun toString(): String {return title.toString()}
 }
