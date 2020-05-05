@@ -5,8 +5,8 @@ import com.badger.taskschedulingapp.Main.controllers.TaskListController
 import com.badger.taskschedulingapp.Main.models.Task
 import com.badger.taskschedulingapp.Main.staic.Styles
 import javafx.beans.value.ObservableValue
+import javafx.collections.FXCollections
 import javafx.collections.ObservableList
-import javafx.collections.transformation.SortedList
 import javafx.scene.control.SelectionMode
 import tornadofx.*
 import java.util.*
@@ -15,7 +15,6 @@ class TaskListView: Fragment("Task List View"){
 
     val user: User by param()
     val controller = TaskListController(user)
-
 
     override val root = borderpane() {
 
