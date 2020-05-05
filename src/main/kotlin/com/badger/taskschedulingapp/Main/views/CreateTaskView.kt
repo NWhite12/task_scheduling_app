@@ -13,8 +13,8 @@ import tornadofx.*
 
 class CreateTaskView: Fragment("Create Task View") {
 
-    val listController: TaskListController by param()
-    val controller = CreateTaskController(listController.user)
+    val user: User by param()
+    val controller = CreateTaskController(user)
 
     var ttile: TextField by singleAssign()
     var tdescription: TextArea by singleAssign()
