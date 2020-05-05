@@ -1,22 +1,15 @@
-# Title / Repository Name
+# To-Do List app
 
 ## About / Synopsis
+This project will be a simple 'todo' list app. Meaning a user can add ideas/projects into the system to be kept track of for them to complete at a later date. The database portion of this app, will be hosted on Amazon Web Service(AWS). The GUI portion of this app, will be handled by the tornadoFX library.  
 
-* What is it, what does it do / Abstract
-* Project status: working/prototype
-* Nuxeo Support
-
-See real examples:
-
-* <https://github.com/nuxeo/nuxeo/blob/master/README.md>
-* <https://github.com/nuxeo/nuxeo-drive/blob/master/README.md>
-* <https://github.com/nuxeo/nuxeo-sdk-ios/blob/master/README.md>
+* To-Do list app
+* Project status: Working
+* Programming Language Final
 
 ## Table of contents
 
-Use for instance <https://github.com/ekalinin/github-markdown-toc>:
-
-> * [Title / Repository Name](#title--repository-name)
+> * [To-Do List app](#To-Do-List-app)
 >   * [About / Synopsis](#about--synopsis)
 >   * [Table of contents](#table-of-contents)
 >   * [Installation](#installation)
