@@ -2,7 +2,7 @@ package com.badger.taskschedulingapp.Main.models
 
 import com.badger.demo.app.User
 import java.io.Serializable
-import java.util.*
+import java.time.LocalDate
 import javax.persistence.*
 
 /*
@@ -23,7 +23,7 @@ data class Task (@Id
                  var id: Long? = null,
                  var title: String? = null,
                  var description: String? = null,
-                 var due_date: Date? = null,
+                 var due_date: LocalDate? = null,
                  @ManyToOne
                  var user: User? = null,
                  @ManyToOne

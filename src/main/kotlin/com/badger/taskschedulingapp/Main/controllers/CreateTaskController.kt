@@ -9,19 +9,18 @@ import com.badger.taskschedulingapp.Main.views.AlertView
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import tornadofx.*
-import java.text.SimpleDateFormat
-import java.util.*
+import java.time.LocalDate
 
 class CreateTaskController(u: User): Controller() {
     val user = u
     val priorityList = PriorityPostgresService().findAll()
 
-    fun save(title: String, description: String, due: String, priority: String): Task{
+    fun save(title: String, description: String, due: LocalDate, priority: String): Task{
 
         var task: Task = Task()
         var foundP = Priority()
 
-        val formatter = SimpleDateFormat("yyyy-mm-dd", Locale.ENGLISH)
+        //val formatter = SimpleDateFormat("yyyy-mm-dd", Locale.ENGLISH)
 
         for (pri in priorityList){
 
@@ -31,7 +30,7 @@ class CreateTaskController(u: User): Controller() {
         }
         task.title = title
         task.description = description
-        task.due_date = formatter.parse(due)
+        task.due_date = due
         task.priority = foundP
         task.user = user
 

@@ -8,7 +8,6 @@ import javafx.scene.control.DatePicker
 import javafx.scene.control.TextArea
 import javafx.scene.control.TextField
 import tornadofx.*
-import java.time.LocalDate
 
 class EditTaskView: Fragment("Edit View") {
 
@@ -39,7 +38,7 @@ class EditTaskView: Fragment("Edit View") {
 
             field("Due Date") {
                 tdue = datepicker{
-                    value = LocalDate.parse( (task.due_date.toString().split(' ')[0])) //todo: change to getting old values from database on this task
+                    value = task.due_date //todo: change to getting old values from database on this task
                 }
 
             }
@@ -62,7 +61,7 @@ class EditTaskView: Fragment("Edit View") {
 
     button("Save"){
         action {
-            taskList.add(controller.save(ttile.text, tdescription.text, tdue.value.toString(), tpriority.value.toString(),task))
+            taskList.add(controller.save(ttile.text, tdescription.text, tdue.value, tpriority.value.toString(),task))
             taskList.remove(task)
             close()
         }

@@ -52,7 +52,7 @@ class CreateTaskView: Fragment("Create Task View") {
 
         button("Save"){
             action {
-                taskList.add(controller.save(ttile.text, tdescription.text, tdue.value.toString(), tpriority.value.toString()))
+                taskList.add(controller.save(ttile.text, tdescription.text, tdue.value, tpriority.value.toString()))
                 close()
             }
         }

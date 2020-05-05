@@ -9,13 +9,14 @@ import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import tornadofx.*
 import java.text.SimpleDateFormat
+import java.time.LocalDate
 import java.util.*
 
 
 class EditTaskController: Controller() {
     val priorityList = PriorityPostgresService().findAll()
 
-    fun save(title: String, description: String, due: String, priority: String, task: Task): Task{
+    fun save(title: String, description: String, due: LocalDate, priority: String, task: Task): Task{
 
         //todo: replace this with a save call to modles for datbase
         println("title is $title")
@@ -33,17 +34,17 @@ class EditTaskController: Controller() {
             }
         }
 
-        val formatter = SimpleDateFormat("yyyy-mm-dd", Locale.ENGLISH)
+        val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH)
         val id = task.id as Long
         val user = task.user
 
         val updateTask: Task = Task()
         updateTask.title = title
         updateTask.description = description
-        updateTask.due_date = formatter.parse(due)
+        updateTask.due_date = due
         updateTask.priority = foundP
         updateTask.user = user
-
+        println(updateTask.due_date )
         //val task = Task(title = title, description = description, due_date = formatter.parse(due), priority = foundP)
         server.deleteById(id)
         server.save(updateTask)
