@@ -4,7 +4,8 @@
 This project will be a simple 'todo' list app. Meaning a user can add ideas/projects into the system to be kept track of for them to complete at a later date. The database portion of this app, will be hosted on Amazon Web Service(AWS). The GUI portion of this app, will be handled by the tornadoFX library.  
 
 * To-Do list app
-* Project status: Working
+* Kotlin, TornadoFX, AWS
+* Project status: Prototype
 * Programming Language Final
 
 ## Table of contents
@@ -12,6 +13,7 @@ This project will be a simple 'todo' list app. Meaning a user can add ideas/proj
 > * [To-Do List app](#To-Do-List-app)
 >   * [About / Synopsis](#about--synopsis)
 >   * [Table of contents](#table-of-contents)
+>   * [Requirements](#Requirements)
 >   * [Installation](#installation)
 >   * [Usage](#usage)
 >     * [Screenshots](#screenshots)
@@ -27,12 +29,28 @@ This project will be a simple 'todo' list app. Meaning a user can add ideas/proj
 >   * [License](#license)
 >   * [About Nuxeo](#about-nuxeo)
 
+## Requirements
+The following are a list of technology's and knowledge that will be referenced during the development of this software. 
+
+- [Kotlin](https://kotlinlang.org/)
+    - The programming language that handles the logic of the app
+- [jdk 8](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html)
+    - The run time environment that executes the app. **Note:** jdk 8 is needed because of the tornado fx library needing of java FX which supports jdk 8.
+- [TornadoFX](https://tornadofx.io/)
+    - The GUI library in which the GUI is made from
+- [hybernate](https://hibernate.org/)
+    - A tool that map's our java class models into models for the DBMS
+- [Maven](https://maven.apache.org/)
+    - The Tool that builds the app and makes sure all the dependence's are there. 
+- [PG admin](https://www.pgadmin.org/)
+    - This allows you to view the database outside of the app to make sure data is save/read correctly. 
+
 ## Installation
 
-Sample:
+### Recommendations
+We suggest using the windows 10 environment to run/ build this app. We also suggest using the Intellij IDE, as it makes dealing with the multiple technologies much easer. 
 
-* From the Nuxeo Marketplace: install [the Sample Nuxeo Package](https://connect.nuxeo.com/nuxeo/site/marketplace/package/nuxeo-sample).
-* From the command line: `nuxeoctl mp-install nuxeo-sample`
+**Note:** The app has not been tested on older versions of windows or any Unix based system. So we do not grantee it will work. 
 
 ## Usage
 
