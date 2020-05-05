@@ -3,7 +3,6 @@ package com.badger.taskschedulingapp.Main.views
 import com.badger.demo.app.User
 import com.badger.taskschedulingapp.Main.controllers.CreateTaskController
 import com.badger.taskschedulingapp.Main.models.Task
-import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import javafx.scene.control.ComboBox
 import javafx.scene.control.DatePicker
@@ -43,10 +42,9 @@ class CreateTaskView: Fragment("Create Task View") {
             }
 
             //todo: make this a pull from database instead
-            val example = FXCollections.observableArrayList("high","Mid", "low")
             label("Priority Level")
-            tpriority = combobox<String>{
-                items = example
+            tpriority = combobox<String> {
+                items = controller.getPriority()
             }
 
         }

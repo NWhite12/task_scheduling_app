@@ -55,8 +55,8 @@ class EditTaskView: Fragment("Edit View") {
 
     button("Delete"){
         action {
-            if (controller.delete(task))
-                close()
+            taskList.remove(controller.delete(task))
+            close()
         }
     }
 

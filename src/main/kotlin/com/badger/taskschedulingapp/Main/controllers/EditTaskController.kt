@@ -61,14 +61,14 @@ class EditTaskController: Controller() {
 
     }
 
-    fun delete(task: Task): Boolean{
+    fun delete(task: Task): Task{
         println("delteing $task")
         //todo: do a real delete call to the database
         val test: Boolean = true
 
         val server = TaskPostgresService()
 
-        server.delete(task)
+        server.deleteById(task.id as Long)
 
         if(test){
             println("deleted the task")
@@ -78,7 +78,7 @@ class EditTaskController: Controller() {
             find<AlertView>(mapOf(AlertView::alert to "Faild delteing the task", AlertView::message to "please check your values or contact system admin")).openWindow(owner = null)
         }
 
-        return test
+        return task
     }
 
     fun getPriority(): ObservableList<String>? {
