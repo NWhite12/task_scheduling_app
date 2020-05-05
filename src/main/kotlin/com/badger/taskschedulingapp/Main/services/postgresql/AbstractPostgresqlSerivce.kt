@@ -11,4 +11,9 @@ abstract class AbstractPostgresqlSerivce<T, ID>: CrudService<T, ID> {
     val models = arrayOf((User::class.java),  (Task::class.java),  (Priority::class.java))
     protected val sessionFactory = DataSource.startSessionFactory("/postgresqlDB.properties", models)
 
+    fun close(){
+        //sessionFactory.currentSession.clear()
+        sessionFactory.currentSession.close()
+        sessionFactory.close()
+    }
 }

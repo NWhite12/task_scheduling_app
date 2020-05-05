@@ -26,7 +26,7 @@ data class Task (@Id
                  var due_date: Date? = null,
                  @ManyToOne
                  var user: User? = null,
-                 @ManyToOne(cascade=[CascadeType.ALL])
+                 @ManyToOne
                  var priority: Priority? = null): Serializable {
     override fun toString(): String {return title.toString()}
 }

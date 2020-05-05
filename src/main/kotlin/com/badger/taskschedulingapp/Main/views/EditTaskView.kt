@@ -2,7 +2,7 @@ package com.badger.taskschedulingapp.Main.views
 
 import com.badger.taskschedulingapp.Main.controllers.EditTaskController
 import com.badger.taskschedulingapp.Main.models.Task
-import javafx.collections.FXCollections
+import javafx.collections.ObservableList
 import javafx.scene.control.ComboBox
 import javafx.scene.control.DatePicker
 import javafx.scene.control.TextArea
@@ -20,6 +20,7 @@ class EditTaskView: Fragment("Edit View") {
     var tpriority: ComboBox<String> by singleAssign()
 
     val task: Task by param()
+    val taskList: ObservableList<Task> by param()
 
     override val root = form {
 
@@ -61,8 +62,9 @@ class EditTaskView: Fragment("Edit View") {
 
     button("Save"){
         action {
-            if (controller.save(ttile.text, tdescription.text, tdue.value.toString(), tpriority.value.toString(),task))
-                close()
+            taskList.add(controller.save(ttile.text, tdescription.text, tdue.value.toString(), tpriority.value.toString(),task))
+            taskList.remove(task)
+            close()
         }
     }
 

@@ -1,16 +1,36 @@
 package com.badger.taskschedulingapp.Main.controllers
 
 import com.badger.demo.app.User
+import com.badger.taskschedulingapp.Main.models.Priority
 import com.badger.taskschedulingapp.Main.models.Task
+import com.badger.taskschedulingapp.Main.services.postgresql.PriorityPostgresService
 import com.badger.taskschedulingapp.Main.views.AlertView
 import tornadofx.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class CreateTaskController(u: User): Controller() {
     val user = u
+    val priorityList = PriorityPostgresService().findAll()
 
+    fun save(title: String, description: String, due: String, priority: String): Task{
+        var task: Task = Task()
+        var foundP = Priority()
 
-    fun save(title: String, description: String, due: String, priority: String): Boolean{
-    var task: Task
+        val formatter = SimpleDateFormat("yyyy-mm-dd", Locale.ENGLISH)
+
+        for (pri in priorityList){
+
+            if (priority == pri.title){
+                foundP = pri
+            }
+        }
+        task.title = title
+        task.description = description
+        task.due_date = formatter.parse(due)
+        task.priority = foundP
+        task.user = user
+
         //todo: replace this with a save call to modles for datbase
         println("title is $title")
         println("Descripton is $description")
@@ -28,6 +48,6 @@ class CreateTaskController(u: User): Controller() {
         }
 
 
-        return saving
+        return task
     }
 }
