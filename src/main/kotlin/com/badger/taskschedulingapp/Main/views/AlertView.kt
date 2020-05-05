@@ -4,7 +4,7 @@ import com.badger.taskschedulingapp.Main.controllers.AlertController
 import com.badger.taskschedulingapp.Main.staic.Styles
 import tornadofx.*
 
-class AlertView: View("Alert View") {
+class AlertView: Fragment("Alert View") {
 
     val Controller: AlertController by inject()
 

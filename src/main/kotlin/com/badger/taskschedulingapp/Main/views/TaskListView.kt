@@ -39,7 +39,6 @@ class TaskListView: Fragment("Task List View"){
             button("Create Task") {
                 action {
                     controller.CreateTask(taskList)
-
                 }
             }
 
