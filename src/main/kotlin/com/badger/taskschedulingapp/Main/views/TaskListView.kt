@@ -26,12 +26,6 @@ class TaskListView: Fragment("Task List View"){
         center = listview(taskList) {
             selectionModel.selectionMode = SelectionMode.SINGLE
 
-            /*
-            selectionModel.selectedItemProperty().addListener(ChangeListener<Task>(){
-                @Override fun changed(observable: ObservableValue<Any?: Task>)
-            })
-            */
-
             onDoubleClick {
                 controller.EditTask(selectionModel.selectedItem, taskList)
                 println("double click")
