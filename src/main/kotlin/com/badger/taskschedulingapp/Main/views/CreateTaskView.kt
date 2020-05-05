@@ -2,8 +2,8 @@ package com.badger.taskschedulingapp.Main.views
 
 import com.badger.demo.app.User
 import com.badger.taskschedulingapp.Main.controllers.CreateTaskController
-import com.badger.taskschedulingapp.Main.controllers.TaskListController
-import javafx.collections.FXCollections
+import com.badger.taskschedulingapp.Main.models.Task
+import javafx.collections.ObservableList
 import javafx.scene.control.ComboBox
 import javafx.scene.control.DatePicker
 import javafx.scene.control.TextArea
@@ -21,6 +21,7 @@ class CreateTaskView: Fragment("Create Task View") {
     var tdue: DatePicker by singleAssign()
     var tpriority: ComboBox<String> by singleAssign()
 
+    val taskList: ObservableList<Task> by param()
 
     override val root = form{
 
@@ -41,10 +42,9 @@ class CreateTaskView: Fragment("Create Task View") {
             }
 
             //todo: make this a pull from database instead
-            val example = FXCollections.observableArrayList("high","Mid", "low")
             label("Priority Level")
-            tpriority = combobox<String>{
-                items = example
+            tpriority = combobox<String> {
+                items = controller.getPriority()
             }
 
         }
@@ -52,8 +52,8 @@ class CreateTaskView: Fragment("Create Task View") {
 
         button("Save"){
             action {
-                if (controller.save(ttile.text, tdescription.text, tdue.value.toString(), tpriority.value.toString()))
-                    close()
+                taskList.add(controller.save(ttile.text, tdescription.text, tdue.value.toString(), tpriority.value.toString()))
+                close()
             }
         }
 

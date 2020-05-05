@@ -1,7 +1,6 @@
 package com.badger.taskschedulingapp.Main.controllers
 
 import com.badger.demo.app.User
-import com.badger.taskschedulingapp.Main.services.UserService
 import com.badger.taskschedulingapp.Main.services.postgresql.UserPostgresService
 import com.badger.taskschedulingapp.Main.views.AlertView
 import com.badger.taskschedulingapp.Main.views.TaskListView
@@ -26,6 +25,7 @@ class LoginController: Controller() {
         else {
             var service = UserPostgresService()
             user = service.findByUserName(userName.text)
+            service.close()
         }
 
         //todo: check up on bad login after Nick adds null returns

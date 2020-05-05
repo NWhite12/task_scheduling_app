@@ -13,8 +13,9 @@ import java.util.*
 
 
 class EditTaskController: Controller() {
+    val priorityList = PriorityPostgresService().findAll()
 
-    fun save(title: String, description: String, due: String, priority: String, task: Task): Boolean{
+    fun save(title: String, description: String, due: String, priority: String, task: Task): Task{
 
         //todo: replace this with a save call to modles for datbase
         println("title is $title")
@@ -23,10 +24,9 @@ class EditTaskController: Controller() {
         println("Priority is $priority")
 
         val server = TaskPostgresService()
-        val server2 = PriorityPostgresService()
         var foundP = Priority()
-        val list = server2.findAll()
-        for (pri in list){
+
+        for (pri in priorityList){
 
             if (priority == pri.title){
                 foundP = pri
@@ -34,15 +34,19 @@ class EditTaskController: Controller() {
         }
 
         val formatter = SimpleDateFormat("yyyy-mm-dd", Locale.ENGLISH)
+        val id = task.id as Long
+        val user = task.user
 
-
-        task.title = title
-        task.description = description
-        task.due_date = formatter.parse(due)
-        task.priority = foundP
+        val updateTask: Task = Task()
+        updateTask.title = title
+        updateTask.description = description
+        updateTask.due_date = formatter.parse(due)
+        updateTask.priority = foundP
+        updateTask.user = user
 
         //val task = Task(title = title, description = description, due_date = formatter.parse(due), priority = foundP)
-        server.update(task)
+        server.deleteById(id)
+        server.save(updateTask)
 
         //todo: do a real saving call to the database
         val saving: Boolean = true
@@ -53,19 +57,18 @@ class EditTaskController: Controller() {
         else{
             find<AlertView>(mapOf(AlertView::alert to "Faild saving the task", AlertView::message to "please check your values or contact system admin")).openWindow(owner = null)
         }
+        return updateTask
 
-
-        return saving
     }
 
-    fun delete(task: Task): Boolean{
+    fun delete(task: Task): Task{
         println("delteing $task")
         //todo: do a real delete call to the database
         val test: Boolean = true
 
         val server = TaskPostgresService()
 
-        server.delete(task)
+        server.deleteById(task.id as Long)
 
         if(test){
             println("deleted the task")
@@ -75,7 +78,7 @@ class EditTaskController: Controller() {
             find<AlertView>(mapOf(AlertView::alert to "Faild delteing the task", AlertView::message to "please check your values or contact system admin")).openWindow(owner = null)
         }
 
-        return test
+        return task
     }
 
     fun getPriority(): ObservableList<String>? {
