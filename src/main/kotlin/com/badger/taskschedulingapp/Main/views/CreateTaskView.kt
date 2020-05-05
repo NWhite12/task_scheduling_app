@@ -2,6 +2,7 @@ package com.badger.taskschedulingapp.Main.views
 
 import com.badger.demo.app.User
 import com.badger.taskschedulingapp.Main.controllers.CreateTaskController
+import com.badger.taskschedulingapp.Main.controllers.TaskListController
 import javafx.collections.FXCollections
 import javafx.scene.control.ComboBox
 import javafx.scene.control.DatePicker
@@ -12,8 +13,8 @@ import tornadofx.*
 
 class CreateTaskView: Fragment("Create Task View") {
 
-    val user: User by param()
-    val controller = CreateTaskController(user)
+    val listController: TaskListController by param()
+    val controller = CreateTaskController(listController.user)
 
     var ttile: TextField by singleAssign()
     var tdescription: TextArea by singleAssign()

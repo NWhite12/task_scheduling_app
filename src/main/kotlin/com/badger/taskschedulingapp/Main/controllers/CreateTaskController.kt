@@ -2,29 +2,46 @@ package com.badger.taskschedulingapp.Main.controllers
 
 import com.badger.demo.app.User
 import com.badger.taskschedulingapp.Main.models.Task
+import com.badger.taskschedulingapp.Main.models.Priority
+import com.badger.taskschedulingapp.Main.services.postgresql.PriorityPostgresService
+import com.badger.taskschedulingapp.Main.services.postgresql.TaskPostgresService
+
 import com.badger.taskschedulingapp.Main.views.AlertView
+import com.badger.taskschedulingapp.Main.views.TaskListView
 import tornadofx.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class CreateTaskController(u: User): Controller() {
     val user = u
 
 
-    fun save(title: String, description: String, due: String, priority: String): Boolean{
-    var task: Task
-        //todo: replace this with a save call to modles for datbase
-        println("title is $title")
-        println("Descripton is $description")
-        println("Due date is $due")
-        println("Priority is $priority")
+    fun save(title: String, description: String, due: String, priorityStr: String): Boolean{
 
-        //todo: do a real saving call to the database
-        val saving: Boolean = true
+        val server: TaskPostgresService = TaskPostgresService()
+        val server2: PriorityPostgresService = PriorityPostgresService()
+        val formatter = SimpleDateFormat("yyyy-mm-dd", Locale.ENGLISH)
 
-        if (saving){
-            find<AlertView>(mapOf(AlertView::alert to "$title added", AlertView::message to "your task has been added to the system")).openWindow(owner = null)
+        var saving = false
+
+        var priority = Priority()
+        for(p in server2.findAll()) if(priorityStr == p.title) priority = p
+
+        var task: Task = Task()
+        task.title = title
+        task.description = description
+        task.due_date = formatter.parse(due)
+        task.priority = priority
+        task.user = user
+
+        if (task.title == "" || task.priority == null){
+            find<AlertView>(mapOf(AlertView::alert to "Invalid Task", AlertView::message to "Add a title to your task")).openWindow(owner = null)
         }
         else{
-            find<AlertView>(mapOf(AlertView::alert to "Faild saving the task", AlertView::message to "please check your values or contact system admin")).openWindow(owner = null)
+            server.save(task)
+
+            find<AlertView>(mapOf(AlertView::alert to "Task saved", AlertView::message to "")).openWindow(owner = null)
+            saving = true
         }
 
 

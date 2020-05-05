@@ -14,9 +14,9 @@ import tornadofx.*
 class TaskListController(u: User): Controller() {
     val user = u
 
-    fun CreateTask(){
+    fun CreateTask(listController: TaskListController){
         println("Opening the create task view (from task list )")
-        find<CreateTaskView>(mapOf(CreateTaskView::user to user)).openWindow(owner = null)
+        find<CreateTaskView>(mapOf(CreateTaskView::listController to listController)).openWindow(owner = null)
     }
 
     fun Logout(){

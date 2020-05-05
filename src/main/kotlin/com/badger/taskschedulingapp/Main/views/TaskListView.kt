@@ -47,7 +47,7 @@ class TaskListView: Fragment("Task List View"){
             //todo: have this create a task pop up window
             button("Create Task") {
                 action {
-                    controller.CreateTask()
+                    controller.CreateTask(controller)
 
                 }
             }
