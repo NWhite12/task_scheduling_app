@@ -4,17 +4,17 @@ import com.badger.demo.app.User
 import com.badger.taskschedulingapp.Main.controllers.TaskListController
 import com.badger.taskschedulingapp.Main.models.Task
 import com.badger.taskschedulingapp.Main.staic.Styles
+import javafx.beans.value.ObservableValue
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import javafx.scene.control.SelectionMode
 import tornadofx.*
+import java.util.*
 
 class TaskListView: Fragment("Task List View"){
 
     val user: User by param()
     val controller = TaskListController(user)
-    val taskList = FXCollections.observableList(user.tasks)
-
 
     override val root = borderpane() {
 
@@ -26,15 +26,14 @@ class TaskListView: Fragment("Task List View"){
 
         //left =
 
-        center = listview(taskList as ObservableList<Task>) {
+        center = listview(controller.getTasks(user)) {
             selectionModel.selectionMode = SelectionMode.SINGLE
 
-
-            selectionModel.selectedItemProperty().addListener(ChangeListener { observable, oldValue, newValue ->
-                if (newValue != null) {
-                    val item: Task = selectionModel.selectedItem
-                }
+            /*
+            selectionModel.selectedItemProperty().addListener(ChangeListener<Task>(){
+                @Override fun changed(observable: ObservableValue<Any?: Task>)
             })
+            */
 
             onDoubleClick {
                 controller.EditTask(selectionModel.selectedItem)
