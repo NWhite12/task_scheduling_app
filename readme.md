@@ -1,7 +1,7 @@
 # To-Do List app
 
 ## About / Synopsis
-This project will be a simple 'todo' list app. Meaning a user can add ideas/projects into the system to be kept track of for them to complete at a later date. The database portion of this app, will be hosted on Amazon Web Service(AWS). The GUI portion of this app, will be handled by the tornadoFX library.  
+This project will be a simple 'todo' list app. A user can add ideas/projects into the system with priority levels and due dates to be tracked. The database portion of this app will be hosted on Amazon Web Service(AWS). The GUI portion of this app will be handled by the tornadoFX library.  
 
 * To-Do list app
 * Kotlin, TornadoFX, AWS
@@ -36,27 +36,27 @@ This project will be a simple 'todo' list app. Meaning a user can add ideas/proj
 >   * [Acknowledgements](#Acknowledgements)
 
 ## Requirements
-The following are a list of technology's and knowledge that will be referenced during the development of this software. 
+The following are a list of technologies that will be referenced during the development of this software. 
 
 - [Kotlin](https://kotlinlang.org/)
     - The programming language that handles the logic of the app
 - [jdk 8](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html)
-    - The run time environment that executes the app. **Note:** jdk 8 is needed because of the tornado fx library needing of java FX which supports jdk 8.
+    - The run time environment that executes the app. **Note:** jdk 8 is needed because the tornado fx library needs java FX which needs jdk 8.
 - [TornadoFX](https://tornadofx.io/)
-    - The GUI library in which the GUI is made from
+    - The GUI library we use for the GUI.
 - [hibernate](https://hibernate.org/)
-    - A tool that map's our java class models into models for the DBMS
+    - A tool that maps our java class models into models for the DBMS
 - [Maven](https://maven.apache.org/)
-    - The Tool that builds the app and makes sure all the dependence's are there. 
+    - The tool that builds the app and makes sure all the dependencies are there. 
 - [PG admin](https://www.pgadmin.org/)
-    - This allows you to view the database outside of the app to make sure data is save/read correctly. 
+    - This allows you to view the database directly to make sure data is saved/read correctly. 
 
 ## Installation
 
 ### Recommendations
-We suggest using the windows 10 environment to run/ build this app. We also suggest using the [Intellij IDE](https://www.jetbrains.com/idea/), as it makes dealing with the multiple technologies much easer. 
+We suggest using the Windows 10 environment to run/ build this app. We also suggest using the [Intellij IDE](https://www.jetbrains.com/idea/), as it makes dealing with the multiple technologies much easer. 
 
-**Note:** The app has not been tested on older versions of windows or any Unix based system. So we do not grantee it will work. 
+**Note:** The app has not been tested on older versions of windows or any Unix based system. So we do not guarantee it will work. 
 
 ### Kotlin
 
@@ -86,7 +86,7 @@ We suggest using the windows 10 environment to run/ build this app. We also sugg
 | 8 | Add CSS | Adding some type of css so the program does not look like :poop: | :x: |
 
 ### Screenshots
-Here are some screen shots of the app running in its current form.
+Here are some screenshots of the app running in its current build.
 
 #### Main home screen
 ![home screen](readme_resources/pictures/start_page.png)
@@ -117,9 +117,9 @@ A collection of visual aids created by the team helped in the development of the
 - [TornadoFX](https://edvin.gitbooks.io/tornadofx-guide/)
 
 ## Contributing / Reporting issues
-For [Contributing](https://github.com/NickJWhite12/task_scheduling_app/pulls), please create a pull request with the title ether being 'New Feature' or the title that was used when reporting the issue. The pull request should be with a testing branch and not with 'main'. Any pull request that merges with main will odds are be denied.
+For [Contributing](https://github.com/NickJWhite12/task_scheduling_app/pulls), please create a pull request with the title either being 'New Feature' or the title that was used when reporting the issue. The pull request should be with a testing branch and not with 'main'. Any pull requests that merge with main will likely be denied.
 
-For [reporting issues](https://github.com/NickJWhite12/task_scheduling_app/issues), we are using the built in reporting system that github provides. Any bugs or suggestions to the application should be placed there.
+For [reporting issues](https://github.com/NickJWhite12/task_scheduling_app/issues), we are using the built-in reporting system that github provides. Any bugs or suggestions to the application should be placed there.
 
 ## License
 - [Kotlin](https://kotlinlang.org/docs/reference/faq.html)
@@ -147,9 +147,9 @@ For [reporting issues](https://github.com/NickJWhite12/task_scheduling_app/issue
 - <white_nicholas@columbusstate.edu>
 
 ## Goals
-the goal of this project was simple. Is to gain a better understanding of what the Kotlin programming language can do. This includes acts such as language syntax, technology connectivity, and library support. But along the way we all wanted to focus on areas around development that programmers in school often over look. Like GitHub, Testing, And Documentation. 
+the goal of this project was simple. Is to gain a better understanding of what the Kotlin programming language can do. This includes acts such as language syntax, technology connectivity, and library support. But along the way we all wanted to focus on areas around development that programmers in school often over look. Like GitHub, GUI development, Testing, And Documentation. 
 
 But most of all, we just wanted to tinker with some code! :fist_right: :desktop_computer: :fist_left:
 
 ## Acknowledgements
-We wanted to thank our teacher, Dr. Angelopoulou, for giving us the chance to expand as developers because of this project. 
+We wanted to thank our teacher, Dr. Angelopoulou, for giving us the chance to grow as developers because of this project. 
