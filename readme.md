@@ -89,29 +89,29 @@ We suggest using the windows 10 environment to run/ build this app. We also sugg
 Here are some screen shots of the app running in its current form.
 
 #### Main home screen
-![home screen](documentation/pictures/start_page.png)
+![home screen](readme_resources/pictures/start_page.png)
 
 #### The login page as its connecting to AWS
-![login](documentation/pictures/login.png)
+![login](readme_resources/pictures/login.png)
 
 #### The users main view of seeing all the tasks tied to them
-![view list](documentation/pictures/view_list.png)
+![view list](readme_resources/pictures/view_list.png)
 
 #### The edit view of a task
-![edit task](documentation/pictures/edit_task.png)
+![edit task](readme_resources/pictures/edit_task.png)
 
 ## Resources (Documentation and other links)
 A collection of visual aids created by the team helped in the development of the project. Also references to any tutorials used during development.
 
 ### Diagrams
-- [Database](documentation/diagrams/database.pdf)
-- [Technology stack](documentation/diagrams/technology_stack.pdf)
-- [Wireframe](documentation/diagrams/wireframe.pdf)
+- [Database](readme_resources/diagrams/database.pdf)
+- [Technology stack](readme_resources/diagrams/technology_stack.pdf)
+- [Wireframe](readme_resources/diagrams/wireframe.pdf)
 
 ### Documents
-- [testing sheet](documentation/documents/tests.pdf)
-- [final report](documentation/documents/final_report.pdf)
-- [user stories](documentation/documents/user_stories.pdf)
+- [testing sheet](readme_resources/documents/tests.pdf)
+- [final report](readme_resources/documents/final_report.pdf)
+- [user stories](readme_resources/documents/user_stories.pdf)
 
 ### Tutorials
 - [TornadoFX](https://edvin.gitbooks.io/tornadofx-guide/)
@@ -132,7 +132,7 @@ For [reporting issues](https://github.com/NickJWhite12/task_scheduling_app/issue
 ## Development Team
 
 ### We are team badger
-![badger](documentation/pictures/badger.png)
+![badger](readme_resources/pictures/badger.png)
 
 #### Peter Keres
 * [GitHub Account](https://github.com/peterkeres)
