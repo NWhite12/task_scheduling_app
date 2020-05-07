@@ -23,18 +23,17 @@ This project will be a simple 'todo' list app. Meaning a user can add ideas/proj
 >       * [Maven](#Maven)
 >       * [PG admin](#PG-admin)
 >   * [Usage](#usage)
->     * [Screenshots](#screenshots)
 >     * [Features](#features)
->   * [Code](#code)
->     * [Content](#content)
->     * [Requirements](#requirements)
->     * [Limitations](#limitations)
->     * [Build](#build)
->     * [Deploy (how to install build product)](#deploy-how-to-install-build-product)
+>     * [Screenshots](#screenshots)
 >   * [Resources (Documentation and other links)](#resources-documentation-and-other-links)
+>       * [Diagrams](#Diagrams)
+>       * [Documents](#Documents)
+>       * [Tutorials](#Tutorials)
 >   * [Contributing / Reporting issues](#contributing--reporting-issues)
 >   * [License](#license)
->   * [About Nuxeo](#about-nuxeo)
+>   * [Development Team](#development-team)
+>   * [Goals](#goals)
+>   * [Acknowledgements](#Acknowledgements)
 
 ## Requirements
 The following are a list of technology's and knowledge that will be referenced during the development of this software. 
@@ -73,16 +72,49 @@ We suggest using the windows 10 environment to run/ build this app. We also sugg
 
 ## Usage
 
-### Screenshots
-
 ### Features
+
+| # | Feature | Details | Status |
+|---|-----|:-----:|:------:|
+| 1 | Enter Tasks | The system can take in tasks and store them | :heavy_check_mark: |
+| 2 | View Tasks | Tasks can be viewed on the system | :heavy_check_mark: |
+| 3 | Delete Tasks | Tasks can be deleted from the system | :heavy_check_mark: |
+| 4 | Login Portal | To enter in the system, a user must enter login credentials | :heavy_check_mark: |
+| 5 | Multiple users on the system | More then one user can access the system and see there own tasks. | :x: |
+| 6 | Sorting Tasks | Can sort tasks based on metrics | :x: |
+| 7 | Tasks can be tagged by date or priority | Tasks hold tags of date and priority level so they can be sorted | :heavy_check_mark: |
+| 8 | Add CSS | Adding some type of css so the program does not look like :poop: | :x: |
+
+### Screenshots
+Here are some screen shots of the app running in its current form.
+
+#### Main home screen
+![home screen](documentation\pictures\start_page.png)
+
+#### The login page as its connecting to AWS
+![login](documentation\pictures\login.png)
+
+#### The users main view of seeing all the tasks tied to them
+![view list](documentation\pictures\view_list.png)
+
+#### The edit view of a task
+![edit task](documentation\pictures\edit_task.png)
 
 ## Resources (Documentation and other links)
 A collection of visual aids created by the team helped in the development of the project. Also references to any tutorials used during development.
 
 ### Diagrams
+- [Database](documentation\diagrams\database.pdf)
+- [Technology stack](documentation\diagrams\technology_stack.pdf)
+- [Wireframe](documentation\diagrams\wireframe.pdf)
+
+### Documents
+- [testing sheet](documentation\documents\tests.pdf)
+- [final report](documentation\documents\final_report.pdf)
+- [user stories](documentation\documents\user_stories.pdf)
 
 ### Tutorials
+- [TornadoFX](https://edvin.gitbooks.io/tornadofx-guide/)
 
 ## Contributing / Reporting issues
 For [Contributing](https://github.com/NickJWhite12/task_scheduling_app/pulls), please create a pull request with the title ether being 'New Feature' or the title that was used when reporting the issue. The pull request should be with a testing branch and not with 'main'. Any pull request that merges with main will odds are be denied.
@@ -97,14 +129,27 @@ For [reporting issues](https://github.com/NickJWhite12/task_scheduling_app/issue
 - [Maven](https://maven.apache.org/ref/3.0.2/license.html)
 - [PG admin](https://www.pgadmin.org/licence/)
 
-## About Nuxeo
+## Development Team
 
-Nuxeo Content Platform is an open source Enterprise Content Management platform, written in Java. Data can be stored in both SQL & NoSQL databases.
+### We are team badger
+![badger](documentation\pictures\badger.png)
 
-The development of the Nuxeo Content Platform is mostly done by Nuxeo employees with an open development model.
+#### Peter Keres
+* [GitHub Account](https://github.com/peterkeres)
+* <keres_peter@columbusstate.edu>
 
-The source code, documentation, roadmap, issue tracker, testing, benchmarks are all public.
+#### Kevin Horadan
+- [GitHub Account](https://github.com/khoradan)
+- <horadan_kevin@columbusstate.edu>
 
-Typically, Nuxeo users build different types of information management solutions for [document management](https://www.nuxeo.com/products/document-management/), [case management](https://www.nuxeo.com/products/case-management/), and [digital asset management](https://www.nuxeo.com/products/digital-asset-management/), use cases. It uses schema-flexible metadata & content models that allows content to be repurposed to fulfill future use cases.
+#### Nicholas White
+- [GitHub Account](https://github.com/NickJWhite12)
+- <white_nicholas@columbusstate.edu>
 
-More information is available at [www.nuxeo.com](http://www.nuxeo.com)./
+## Goals
+the goal of this project was simple. Is to gain a better understanding of what the Kotlin programming language can do. This includes acts such as language syntax, technology connectivity, and library support. But along the way we all wanted to focus on areas around development that programmers in school often over look. Like GitHub, Testing, And Documentation. 
+
+But most of all, we just wanted to tinker with some code! :fist_right: :desktop_computer: :fist_left:
+
+## Acknowledgements
+We wanted to thank our teacher, Dr. Angelopoulou, for giving us the chance to expand as developers because of this project. 
