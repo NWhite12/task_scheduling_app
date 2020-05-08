@@ -1,105 +1,176 @@
-# Title / Repository Name
+# To-Do List app
 
 ## About / Synopsis
+This project will be a simple 'todo' list app. A user can add ideas/projects into the system with priority levels and 
+due dates to be tracked. The database portion of this app will be hosted on Amazon Web Service(AWS). The GUI portion of 
+this app will be handled by the tornadoFX library.  
 
-* What is it, what does it do / Abstract
-* Project status: working/prototype
-* Nuxeo Support
-
-See real examples:
-
-* <https://github.com/nuxeo/nuxeo/blob/master/README.md>
-* <https://github.com/nuxeo/nuxeo-drive/blob/master/README.md>
-* <https://github.com/nuxeo/nuxeo-sdk-ios/blob/master/README.md>
+* To-Do list app
+* Kotlin, TornadoFX, AWS
+* Project status: Prototype
+* Programming Language Final
 
 ## Table of contents
 
-Use for instance <https://github.com/ekalinin/github-markdown-toc>:
-
-> * [Title / Repository Name](#title--repository-name)
+> * [To-Do List app](#To-Do-List-app)
 >   * [About / Synopsis](#about--synopsis)
 >   * [Table of contents](#table-of-contents)
+>   * [Requirements](#Requirements)
 >   * [Installation](#installation)
+>       * [Recommendations](#Recommendations)
+>       * [Kotlin](#Kotlin)
+>       * [jdk 8](#Jdk-8)
+>       * [TornadoFX](#TornadoFX)
+>       * [hibernate](#Hibernate)
+>       * [Maven](#Maven)
+>       * [PG admin](#PG-admin)
 >   * [Usage](#usage)
->     * [Screenshots](#screenshots)
 >     * [Features](#features)
->   * [Code](#code)
->     * [Content](#content)
->     * [Requirements](#requirements)
->     * [Limitations](#limitations)
->     * [Build](#build)
->     * [Deploy (how to install build product)](#deploy-how-to-install-build-product)
+>     * [Screenshots](#screenshots)
 >   * [Resources (Documentation and other links)](#resources-documentation-and-other-links)
+>       * [Diagrams](#Diagrams)
+>       * [Documents](#Documents)
+>       * [Tutorials](#Tutorials)
 >   * [Contributing / Reporting issues](#contributing--reporting-issues)
 >   * [License](#license)
->   * [About Nuxeo](#about-nuxeo)
+>   * [Development Team](#development-team)
+>   * [Goals](#goals)
+>   * [Acknowledgements](#Acknowledgements)
+
+## Requirements
+The following are a list of technologies that will be referenced during the development of this software. 
+
+- [Kotlin](https://kotlinlang.org/)
+    - The programming language that handles the logic of the app
+- [jdk 8](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html)
+    - The run time environment that executes the app. **Note:** jdk 8 is needed because the tornado fx library needs 
+      java FX which needs jdk 8.
+- [TornadoFX](https://tornadofx.io/)
+    - The GUI library we use for the GUI.
+- [hibernate](https://hibernate.org/)
+    - A tool that maps our java class models into models for the DBMS
+- [Maven](https://maven.apache.org/)
+    - The tool that builds the app and makes sure all the dependencies are there. 
+- [PG admin](https://www.pgadmin.org/)
+    - This allows you to view the database directly to make sure data is saved/read correctly. 
 
 ## Installation
 
-Sample:
+### Recommendations
+We suggest using the Windows 10 environment to run/ build this app. We also suggest using the 
+[Intellij IDE](https://www.jetbrains.com/idea/), as it makes dealing with the multiple technologies much easier. 
 
-* From the Nuxeo Marketplace: install [the Sample Nuxeo Package](https://connect.nuxeo.com/nuxeo/site/marketplace/package/nuxeo-sample).
-* From the command line: `nuxeoctl mp-install nuxeo-sample`
+**Note:** The app has not been tested on older versions of windows or any Unix based system. So we do not guarantee it 
+will work. 
+
+### Kotlin
+Install [Intellij](https://www.jetbrains.com/idea/) as Intellij includes comes Kotlin. 
+
+### Jdk 8
+Install [Java SDK 8](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html)
+
+### TornadoFX
+TornadoFX dependencies are included through the use of Maven. Install Intellij [TornadoFX plugin](https://plugins.jetbrains.com/plugin/8339-tornadofx). 
+
+### Hibernate
+Hibernate dependencies are included through the use of Maven. To configure the Postgresql database connection edit the 
+PostgresqlDB.properties file under resources.
+
+### Maven
+Ensure that you system is configured to utilize [maven](https://maven.apache.org/download.cgi). Ensure that Intellij recognizes the pom.xml as a maven project. 
+
+### PG admin 
+**NOTE:** this step is optional. This just makes viewing the database easier. 
+[PG admin](https://www.pgadmin.org/download/)
 
 ## Usage
 
-### Screenshots
 
 ### Features
 
-## Code
+| # | Feature | Details | Status |
+|---|-----|:-----:|:------:|
+| 1 | Enter Tasks | The system can take in tasks and store them | :heavy_check_mark: |
+| 2 | View Tasks | Tasks can be viewed on the system | :heavy_check_mark: |
+| 3 | Delete Tasks | Tasks can be deleted from the system | :heavy_check_mark: |
+| 4 | Login Portal | To enter in the system, a user must enter login credentials | :heavy_check_mark: |
+| 5 | Multiple users on the system | More then one user can access the system and see there own tasks. | :x: |
+| 6 | Sorting Tasks | Can sort tasks based on metrics | :x: |
+| 7 | Tasks can be tagged by date or priority | Tasks hold tags of date and priority level so they can be sorted | :heavy_check_mark: |
+| 8 | Add CSS | Adding some type of css so the program does not look like :poop: | :x: |
 
-[![Build Status](https://qa.nuxeo.org/jenkins/buildStatus/icon?job=/nuxeo/addons_nuxeo-sample-project-master)](https://qa.nuxeo.org/jenkins/job/nuxeo/job/addons_nuxeo-sample-project-master/)
+### Screenshots
+Here are some screenshots of the app running in its current build.
 
-### Content
+#### Main home screen
+![home screen](readme_resources/pictures/start_page.png)
 
-Description, sub-modules organization...
+#### The login page as its connecting to AWS
+![login](readme_resources/pictures/login.png)
 
-### Requirements
+#### The users main view of seeing all the tasks tied to them
+![view list](readme_resources/pictures/view_list.png)
 
-See [CORG/Compiling Nuxeo from sources](http://doc.nuxeo.com/x/xION)
-
-Sample: <https://github.com/nuxeo/nuxeo/blob/master/nuxeo-distribution/README.md>
-
-### Limitations
-
-Sample: <https://github.com/nuxeo-archives/nuxeo-features/tree/master/nuxeo-elasticsearch>
-
-### Build
-
-    mvn clean install
-
-Build options:
-
-* ...
-
-### Deploy (how to install build product)
-
-Direct to MP package if any. Otherwise provide steps to deploy on Nuxeo Platform:
-
- > Copy the built artifacts into `$NUXEO_HOME/templates/custom/bundles/` and activate the `custom` template.
+#### The edit view of a task
+![edit task](readme_resources/pictures/edit_task.png)
 
 ## Resources (Documentation and other links)
+A collection of visual aids created by the team helped in the development of the project. Also references to any 
+tutorials used during development.
+
+### Diagrams
+- [Database](readme_resources/diagrams/database.pdf)
+- [Technology stack](readme_resources/diagrams/technology_stack.pdf)
+- [Wireframe](readme_resources/diagrams/wireframe.pdf)
+
+### Documents
+- [testing sheet](readme_resources/documents/tests.pdf)
+- [final report](readme_resources/documents/final_report.pdf)
+- [user stories](readme_resources/documents/user_stories.pdf)
+
+### Tutorials
+- [TornadoFX](https://edvin.gitbooks.io/tornadofx-guide/)
 
 ## Contributing / Reporting issues
+For [Contributing](https://github.com/NickJWhite12/task_scheduling_app/pulls), please create a pull request with the 
+title either being 'New Feature' or the title that was used when reporting the issue. The pull request should be with a 
+testing branch and not with 'main'. Any pull requests that merge with main will likely be denied.
 
-Link to JIRA component (or project if there is no component for that project). Samples:
-
-* [Link to component](https://jira.nuxeo.com/issues/?jql=project%20%3D%20NXP%20AND%20component%20%3D%20Elasticsearch%20AND%20Status%20!%3D%20%22Resolved%22%20ORDER%20BY%20updated%20DESC%2C%20priority%20DESC%2C%20created%20ASC)
-* [Link to project](https://jira.nuxeo.com/secure/CreateIssue!default.jspa?project=NXP)
+For [reporting issues](https://github.com/NickJWhite12/task_scheduling_app/issues), we are using the built-in reporting 
+system that github provides. Any bugs or suggestions to the application should be placed there.
 
 ## License
+- [Kotlin](https://kotlinlang.org/docs/reference/faq.html)
+- [jdk 8](https://www.oracle.com/technetwork/java/javase/overview/oracle-jdk-faqs.html)
+- [TornadoFX](https://github.com/edvin/tornadofx/blob/master/LICENSE)
+- [hibernate](http://hibernate.org/community/license/)
+- [Maven](https://maven.apache.org/ref/3.0.2/license.html)
+- [PG admin](https://www.pgadmin.org/licence/)
 
-[Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
+## Development Team
 
-## About Nuxeo
+### We are team badger
+![badger](readme_resources/pictures/badger.png)
 
-Nuxeo Content Platform is an open source Enterprise Content Management platform, written in Java. Data can be stored in both SQL & NoSQL databases.
+#### Peter Keres
+* [GitHub Account](https://github.com/peterkeres)
+* <keres_peter@columbusstate.edu>
 
-The development of the Nuxeo Content Platform is mostly done by Nuxeo employees with an open development model.
+#### Kevin Horadan
+- [GitHub Account](https://github.com/khoradan)
+- <horadan_kevin@columbusstate.edu>
 
-The source code, documentation, roadmap, issue tracker, testing, benchmarks are all public.
+#### Nicholas White
+- [GitHub Account](https://github.com/NickJWhite12)
+- <white_nicholas@columbusstate.edu>
 
-Typically, Nuxeo users build different types of information management solutions for [document management](https://www.nuxeo.com/products/document-management/), [case management](https://www.nuxeo.com/products/case-management/), and [digital asset management](https://www.nuxeo.com/products/digital-asset-management/), use cases. It uses schema-flexible metadata & content models that allows content to be repurposed to fulfill future use cases.
+## Goals
+the goal of this project was simple. Is to gain a better understanding of what the Kotlin programming language can do. 
+This includes acts such as language syntax, technology connectivity, and library support. But along the way we all 
+wanted to focus on areas around development that programmers in school often over look. Like GitHub, GUI development,
+ Testing, And Documentation. 
 
-More information is available at [www.nuxeo.com](http://www.nuxeo.com)./
+But most of all, we just wanted to tinker with some code! :fist_right: :desktop_computer: :fist_left:
+
+## Acknowledgements
+We wanted to thank our teacher, Dr. Angelopoulou, for giving us the chance to grow as developers because of this project. 

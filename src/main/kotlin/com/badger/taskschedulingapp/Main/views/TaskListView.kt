@@ -29,6 +29,7 @@ class TaskListView: Fragment("Task List View"){
             onDoubleClick {
                 controller.EditTask(selectionModel.selectedItem, taskList)
                 println("double click")
+
             }
         }
 
