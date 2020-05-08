@@ -19,9 +19,9 @@ this app will be handled by the tornadoFX library.
 >   * [Installation](#installation)
 >       * [Recommendations](#Recommendations)
 >       * [Kotlin](#Kotlin)
->       * [jdk 8](#jdk-8)
+>       * [jdk 8](#Jdk-8)
 >       * [TornadoFX](#TornadoFX)
->       * [hibernate](#hibernate)
+>       * [hibernate](#Hibernate)
 >       * [Maven](#Maven)
 >       * [PG admin](#PG-admin)
 >   * [Usage](#usage)
@@ -64,20 +64,24 @@ We suggest using the Windows 10 environment to run/ build this app. We also sugg
 will work. 
 
 ### Kotlin
-Install Intellij as Intellij includes comes Kotlin. 
+Install [Intellij](https://www.jetbrains.com/idea/) as Intellij includes comes Kotlin. 
 
-### jdk 8
-Install Java SDK 8
+### Jdk 8
+Install [Java SDK 8](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html)
+
 ### TornadoFX
-TornadoFX dependencies are included through the use of Maven. Install Intellij TornadoFX plugin. 
-### hibernate
+TornadoFX dependencies are included through the use of Maven. Install Intellij [TornadoFX plugin](https://plugins.jetbrains.com/plugin/8339-tornadofx). 
+
+### Hibernate
 Hibernate dependencies are included through the use of Maven. To configure the Postgresql database connection edit the 
 PostgresqlDB.properties file under resources.
-### Maven
-Ensure that you system is configured to utilize maven. Ensure that Intellij recognizes the pom.xml as a maven project. 
 
-### PG admin: recommended tool for accessing pgadmin databse
-https://www.pgadmin.org/
+### Maven
+Ensure that you system is configured to utilize [maven](https://maven.apache.org/download.cgi). Ensure that Intellij recognizes the pom.xml as a maven project. 
+
+### PG admin 
+**NOTE:** this step is optional. This just makes viewing the database easier. 
+[PG admin](https://www.pgadmin.org/download/)
 
 ## Usage
 
