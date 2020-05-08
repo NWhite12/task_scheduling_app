@@ -1,7 +1,9 @@
 # To-Do List app
 
 ## About / Synopsis
-This project will be a simple 'todo' list app. A user can add ideas/projects into the system with priority levels and due dates to be tracked. The database portion of this app will be hosted on Amazon Web Service(AWS). The GUI portion of this app will be handled by the tornadoFX library.  
+This project will be a simple 'todo' list app. A user can add ideas/projects into the system with priority levels and 
+due dates to be tracked. The database portion of this app will be hosted on Amazon Web Service(AWS). The GUI portion of 
+this app will be handled by the tornadoFX library.  
 
 * To-Do list app
 * Kotlin, TornadoFX, AWS
@@ -41,7 +43,8 @@ The following are a list of technologies that will be referenced during the deve
 - [Kotlin](https://kotlinlang.org/)
     - The programming language that handles the logic of the app
 - [jdk 8](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html)
-    - The run time environment that executes the app. **Note:** jdk 8 is needed because the tornado fx library needs java FX which needs jdk 8.
+    - The run time environment that executes the app. **Note:** jdk 8 is needed because the tornado fx library needs 
+      java FX which needs jdk 8.
 - [TornadoFX](https://tornadofx.io/)
     - The GUI library we use for the GUI.
 - [hibernate](https://hibernate.org/)
@@ -54,23 +57,30 @@ The following are a list of technologies that will be referenced during the deve
 ## Installation
 
 ### Recommendations
-We suggest using the Windows 10 environment to run/ build this app. We also suggest using the [Intellij IDE](https://www.jetbrains.com/idea/), as it makes dealing with the multiple technologies much easer. 
+We suggest using the Windows 10 environment to run/ build this app. We also suggest using the 
+[Intellij IDE](https://www.jetbrains.com/idea/), as it makes dealing with the multiple technologies much easier. 
 
-**Note:** The app has not been tested on older versions of windows or any Unix based system. So we do not guarantee it will work. 
+**Note:** The app has not been tested on older versions of windows or any Unix based system. So we do not guarantee it 
+will work. 
 
 ### Kotlin
+Install Intellij as Intellij includes comes Kotlin. 
 
 ### jdk 8
-
+Install Java SDK 8
 ### TornadoFX
-
+TornadoFX dependencies are included through the use of Maven. Install Intellij TornadoFX plugin. 
 ### hibernate
-
+Hibernate dependencies are included through the use of Maven. To configure the Postgresql database connection edit the 
+PostgresqlDB.properties file under resources.
 ### Maven
+Ensure that you system is configured to utilize maven. Ensure that Intellij recognizes the pom.xml as a maven project. 
 
-### PG admin
+### PG admin: recommended tool for accessing pgadmin databse
+https://www.pgadmin.org/
 
 ## Usage
+
 
 ### Features
 
@@ -101,7 +111,8 @@ Here are some screenshots of the app running in its current build.
 ![edit task](readme_resources/pictures/edit_task.png)
 
 ## Resources (Documentation and other links)
-A collection of visual aids created by the team helped in the development of the project. Also references to any tutorials used during development.
+A collection of visual aids created by the team helped in the development of the project. Also references to any 
+tutorials used during development.
 
 ### Diagrams
 - [Database](readme_resources/diagrams/database.pdf)
@@ -117,9 +128,12 @@ A collection of visual aids created by the team helped in the development of the
 - [TornadoFX](https://edvin.gitbooks.io/tornadofx-guide/)
 
 ## Contributing / Reporting issues
-For [Contributing](https://github.com/NickJWhite12/task_scheduling_app/pulls), please create a pull request with the title either being 'New Feature' or the title that was used when reporting the issue. The pull request should be with a testing branch and not with 'main'. Any pull requests that merge with main will likely be denied.
+For [Contributing](https://github.com/NickJWhite12/task_scheduling_app/pulls), please create a pull request with the 
+title either being 'New Feature' or the title that was used when reporting the issue. The pull request should be with a 
+testing branch and not with 'main'. Any pull requests that merge with main will likely be denied.
 
-For [reporting issues](https://github.com/NickJWhite12/task_scheduling_app/issues), we are using the built-in reporting system that github provides. Any bugs or suggestions to the application should be placed there.
+For [reporting issues](https://github.com/NickJWhite12/task_scheduling_app/issues), we are using the built-in reporting 
+system that github provides. Any bugs or suggestions to the application should be placed there.
 
 ## License
 - [Kotlin](https://kotlinlang.org/docs/reference/faq.html)
@@ -147,7 +161,10 @@ For [reporting issues](https://github.com/NickJWhite12/task_scheduling_app/issue
 - <white_nicholas@columbusstate.edu>
 
 ## Goals
-the goal of this project was simple. Is to gain a better understanding of what the Kotlin programming language can do. This includes acts such as language syntax, technology connectivity, and library support. But along the way we all wanted to focus on areas around development that programmers in school often over look. Like GitHub, GUI development, Testing, And Documentation. 
+the goal of this project was simple. Is to gain a better understanding of what the Kotlin programming language can do. 
+This includes acts such as language syntax, technology connectivity, and library support. But along the way we all 
+wanted to focus on areas around development that programmers in school often over look. Like GitHub, GUI development,
+ Testing, And Documentation. 
 
 But most of all, we just wanted to tinker with some code! :fist_right: :desktop_computer: :fist_left:
 
