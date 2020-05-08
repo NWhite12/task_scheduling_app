@@ -28,8 +28,7 @@ class LoginController: Controller() {
             service.close()
         }
 
-        //todo: check up on bad login after Nick adds null returns
-        if (user.id != null) {
+        if (user.id != null && user.password == password.text) {
             find<TaskListView>(mapOf(TaskListView::user to user)).openWindow(owner = null)
         }
         else {
